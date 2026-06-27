@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Meta Ventas 2026</title>
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+<link rel="apple-touch-icon" sizes="120x120" href="icon-120.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Meta Ventas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF8C00;
+    --bg: #F9E5CA;
+    --card: #FFF1DF;
+    --text-muted: #A48255;
+    --text-dark: #1a1a1a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    width: 100%; min-height: 100vh;
+    background: var(--bg);
+    font-family: 'Nunito', sans-serif;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+  }
+
+  /* ─────────────────────────────────────────
+     HEADER NARANJA — height 231px, border-radius bottom 30px
+  ───────────────────────────────────────── */
+  .header {
+    width: 100%;
+    background: var(--orange);
+    border-radius: 0 0 30px 30px;
+    padding: 22px 18px 28px;
+    position: relative;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  /* Avatar "00" — círculo #F29D35, 34.75x33.75px */
+  .avatar {
+    width: 35px; height: 34px;
+    background: #F29D35;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: #fff;
+    flex-shrink: 0;
+  }
+
+  /* Switch Part time / Full Time — fondo #F9E5CA, radius 68px */
+  .mode-switch {
+    background: var(--bg);
+    border-radius: 68px;
+    padding: 3px;
+    display: flex;
+    gap: 0;
+  }
+  .mode-btn {
+    border: none; outline: none; cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px; font-weight: 500;
+    border-radius: 29px;
+    padding: 4px 12px;
+    background: transparent;
+    color: var(--orange);
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .mode-btn.active {
+    background: var(--orange);
+    color: var(--card);
+  }
+
+  /* Fecha arriba derecha */
+  .header-date {
+    font-size: 8.7px; font-weight: 500; color: var(--bg);
+    text-align: right; margin-bottom: 4px;
+    display: block;
+  }
+
+  /* Label "Llevas" */
+  .header-label {
+    font-size: 13px; font-weight: 500; color: #fff;
+    margin-bottom: 2px; display: block;
+  }
+
+  /* Monto principal $0 — 53.625px */
+  .header-amount {
+    font-size: 54px; font-weight: 600; color: #fff;
+    line-height: 1; margin-bottom: 14px;
+    letter-spacing: -2px;
+    transition: all 0.3s ease;
+  }
+
+  /* Tabs Llevas/Falta/Diario — fondo #F9E5CA, radius 72px */
+  .stat-tabs-wrap {
+    background: var(--bg);
+    border-radius: 72px;
+    padding: 3px 4px;
+    display: inline-flex;
+    gap: 0;
+  }
+  .stat-tab {
+    border: none; outline: none; cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 10.86px; font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 117px;
+    background: transparent;
+    color: #CC9C5B;
+    transition: all 0.2s;
+  }
+  .stat-tab.active {
+    background: var(--orange);
+    color: var(--bg);
+  }
+
+  /* ─────────────────────────────────────────
+     CONTENEDOR PRINCIPAL
+  ───────────────────────────────────────── */
+  .main {
+    padding: 18px 18px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* ─────────────────────────────────────────
+     TABS DE MES — píldoras
+  ───────────────────────────────────────── */
+  .month-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 2px;
+  }
+  .month-tabs::-webkit-scrollbar { display: none; }
+  .month-tab {
+    flex: 0 0 auto;
+    border: 0.952px solid var(--orange);
+    border-radius: 48.56px;
+    padding: 4px 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12.38px; font-weight: 600;
+    color: var(--orange);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .month-tab.active {
+    background: var(--orange);
+    color: var(--bg);
+    border-color: var(--orange);
+  }
+
+  /* ─────────────────────────────────────────
+     PREGUNTA "¿Cuánto vendiste hoy?"
+  ───────────────────────────────────────── */
+  .question-label {
+    font-size: 20.89px; font-weight: 600;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .question-input-wrap {
+    background: var(--card);
+    border-radius: 21px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .question-input {
+    border: none; background: transparent; outline: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px; font-weight: 600; color: var(--orange);
+    width: 100%;
+  }
+  .question-btn {
+    background: var(--orange); color: #fff; border: none;
+    border-radius: 999px; padding: 8px 16px;
+    font-size: 13px; font-weight: 700; cursor: pointer;
+    font-family: 'Nunito', sans-serif; white-space: nowrap;
+  }
+  .today-no-match {
+    font-size: 13px; color: var(--text-muted); font-weight: 600;
+    text-align: center;
+  }
+
+  /* ─────────────────────────────────────────
+     GRID META + PROGRESO
+  ───────────────────────────────────────── */
+  .meta-progress-row {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  /* Card Meta del mes — fondo #FFF1DF, radius 21px, 162x115px proporcional */
+  .meta-card {
+    background: var(--card);
+    border-radius: 21px;
+    padding: 13px 16px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .meta-card-top { display: flex; flex-direction: column; gap: 2px; }
+  .meta-card-label {
+    font-size: 8.29px; font-weight: 300; color: var(--orange);
+    line-height: 1.2;
+  }
+  .meta-card-value {
+    font-size: 21.56px; font-weight: 500; color: var(--orange);
+    line-height: 1.2;
+  }
+  .meta-input {
+    border: none; background: transparent; outline: none;
+    font-family: 'Nunito', sans-serif;
+    font-size: 21.56px; font-weight: 500; color: var(--orange);
+    width: 100%; padding: 0;
+  }
+  .meta-card-bottom { display: flex; flex-direction: column; gap: 2px; }
+  .comision-label {
+    font-size: 8.29px; font-weight: 300; color: var(--orange);
+  }
+  .comision-value {
+    font-size: 21.56px; font-weight: 500; color: var(--orange);
+  }
+
+  /* Card Progreso — fondo #FFF1DF, radius 21px */
+  .progress-card {
+    background: var(--card);
+    border-radius: 21px;
+    padding: 13px 14px 14px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  /* Texto "Pro gre so" vertical — 28.874px */
+  .progress-text {
+    font-size: 28.87px; font-weight: 600; color: var(--orange);
+    line-height: 1.2; text-align: center;
+    white-space: pre-line;
+    flex-shrink: 0;
+  }
+  /* Círculo donut — 88x88px, border 10px */
+  .donut-wrap {
+    position: relative;
+    width: 88px; height: 88px;
+    flex-shrink: 0;
+  }
+  .donut-svg {
+    width: 88px; height: 88px;
+    transform: rotate(-90deg);
+  }
+  .donut-bg { fill: none; stroke: #e8cba8; stroke-width: 10; }
+  .donut-fill {
+    fill: none; stroke: var(--orange); stroke-width: 10;
+    stroke-linecap: round;
+    stroke-dasharray: 213.6;
+    stroke-dashoffset: 213.6;
+    transition: stroke-dashoffset 0.5s ease;
+  }
+  .donut-pct {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20.89px; font-weight: 600; color: var(--orange);
+  }
+
+  /* ─────────────────────────────────────────
+     CALENDARIO SEMANAL — fondo #FFF1DF, radius 21px
+  ───────────────────────────────────────── */
+  .calendar-card {
+    background: var(--card);
+    border-radius: 21px;
+    padding: 16px 18px 20px;
+  }
+  .calendar-title {
+    font-size: 14.92px; font-weight: 500; color: var(--orange);
+    text-align: center; margin-bottom: 14px;
+  }
+  .calendar-nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+  }
+  .cal-nav-btn {
+    width: 26px; height: 26px; border-radius: 50%; border: none;
+    background: #fff; color: var(--orange);
+    font-size: 14px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cal-nav-btn:disabled { opacity: 0.3; cursor: default; }
+
+  .calendar-week {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    gap: 0;
+  }
+  .cal-lbl {
+    font-size: 11.7px; font-weight: 500; color: var(--text-muted);
+    padding-bottom: 10px;
+  }
+  .cal-day-wrap {
+    display: flex; flex-direction: column; align-items: center; gap: 0;
+  }
+  .cal-day {
+    width: 29px; height: 29px;
+    border-radius: 53.54px;
+    border: none; background: transparent;
+    font-size: 11.7px; font-weight: 500; color: var(--text-muted);
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+    margin: 0 auto;
+  }
+  .cal-day.today { background: var(--orange); color: var(--bg); }
+  .cal-day.success:not(.today) { background: var(--orange); color: var(--bg); opacity: 0.65; }
+  .cal-day.has-sale:not(.today) { background: #fff; color: var(--orange); }
+
+  /* ─────────────────────────────────────────
+     MODAL EDICIÓN DÍA
+  ───────────────────────────────────────── */
+  .day-edit-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1500;
+    display: none; align-items: flex-end; justify-content: center;
+  }
+  .day-edit-overlay.show { display: flex; }
+  .day-edit-box {
+    background: #fff; border-radius: 22px 22px 0 0;
+    padding: 24px 20px 36px;
+    width: 100%; max-width: 480px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .day-edit-title { font-size: 16px; font-weight: 800; color: var(--orange); text-transform: capitalize; }
+  .day-edit-input {
+    height: 50px; border: 2px solid #FFD9A0; border-radius: 14px;
+    padding: 0 16px; font-size: 20px; font-weight: 700;
+    color: var(--orange); font-family: 'Nunito', sans-serif; outline: none;
+  }
+  .day-edit-actions { display: flex; gap: 10px; }
+  .day-edit-save, .day-edit-cancel {
+    flex: 1; height: 46px; border: none; border-radius: 12px;
+    font-weight: 800; font-size: 14px; cursor: pointer; font-family: 'Nunito', sans-serif;
+  }
+  .day-edit-save { background: var(--orange); color: #fff; }
+  .day-edit-cancel { background: #f0f0f0; color: #555; }
+
+  /* ─────────────────────────────────────────
+     BARRA INFERIOR — fondo naranja como en SVG (Rectangle 12)
+     O bien barra blanca con íconos naranja
+  ───────────────────────────────────────── */
+  .bottom-nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: #fff;
+    display: flex; justify-content: space-around; align-items: center;
+    padding: 10px 0 max(10px, env(safe-area-inset-bottom));
+    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+    z-index: 100;
+  }
+  .nav-btn {
+    background: none; border: none; display: flex; flex-direction: column;
+    align-items: center; gap: 3px; color: #ccc;
+    font-size: 10px; font-weight: 700; cursor: pointer;
+    font-family: 'Nunito', sans-serif; padding: 4px 12px;
+  }
+  .nav-btn.active { color: var(--orange); }
+  .nav-btn svg { width: 22px; height: 22px; }
+
+  /* ─────────────────────────────────────────
+     VISTAS / PANELES
+  ───────────────────────────────────────── */
+  .mode-section { display: none; }
+  .mode-section.active { display: block; }
+  .month-panel { display: none; }
+  .month-panel.active { display: flex; flex-direction: column; gap: 14px; }
+  .view-page { display: none; flex-direction: column; gap: 14px; }
+  .view-page.active { display: flex; }
+  .placeholder-card {
+    background: var(--card); border-radius: 21px; padding: 40px 20px;
+    text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600;
+  }
+
+  /* ─────────────────────────────────────────
+     PROGRESS VIEW — chart
+  ───────────────────────────────────────── */
+  .chart-wrap {
+    background: var(--card); border-radius: 21px; padding: 16px;
+  }
+  .chart-label { font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 10px; }
+  .progress-bar-big {
+    background: #e8cba8; border-radius: 999px; height: 32px; overflow: hidden; margin-bottom: 10px;
+  }
+  .progress-bar-fill {
+    background: var(--orange); height: 100%; width: 0%; border-radius: 999px;
+    transition: width 0.4s;
+    display: flex; align-items: center; justify-content: flex-end; padding-right: 12px;
+  }
+  .progress-bar-fill span { color: #fff; font-size: 13px; font-weight: 700; }
+  .progress-stats {
+    background: var(--card); border-radius: 21px; padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .stat-row { display: flex; justify-content: space-between; align-items: center; }
+  .stat-row-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+  .stat-row-value { font-size: 15px; font-weight: 700; color: var(--orange); }
+
+  /* ─────────────────────────────────────────
+     WELCOME MODAL
+  ───────────────────────────────────────── */
+  .welcome-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2000;
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .welcome-box {
+    background: #fff; border-radius: 22px; padding: 30px 24px;
+    max-width: 340px; width: 100%; text-align: center;
+  }
+  .welcome-box h2 { color: var(--orange); font-size: 20px; font-weight: 900; margin-bottom: 6px; }
+  .welcome-box p { color: var(--text-muted); font-size: 13px; font-weight: 600; margin-bottom: 18px; }
+  .welcome-input {
+    width: 100%; height: 46px; border: 2px solid #FFD9A0; border-radius: 12px;
+    padding: 0 14px; font-size: 15px; font-family: 'Nunito', sans-serif;
+    font-weight: 700; margin-bottom: 14px; outline: none;
+  }
+  .welcome-btn {
+    width: 100%; height: 46px; border: none; border-radius: 12px;
+    background: var(--orange); color: #fff; font-weight: 800; font-size: 15px;
+    cursor: pointer; font-family: 'Nunito', sans-serif;
+  }
+
+  /* ─────────────────────────────────────────
+     CELEBRACIÓN
+  ───────────────────────────────────────── */
+  .celebration-overlay {
+    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+    background: rgba(0,0,0,0.35); z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+  }
+  .celebration-overlay.show { opacity: 1; pointer-events: auto; }
+  .celebration-box {
+    background: #fff; border-radius: 22px; padding: 28px 36px; text-align: center;
+    font-size: 22px; font-weight: 900; color: var(--orange);
+    transform: scale(0.8); transition: transform 0.3s;
+  }
+  .celebration-overlay.show .celebration-box { transform: scale(1); }
+  .celebration-box.sad { color: #993C1D; }
+
+  /* Reset btn */
+  .reset-btn {
+    font-size: 12px; color: var(--orange); background: none; border: none;
+    cursor: pointer; text-decoration: underline; font-family: 'Nunito', sans-serif;
+    text-align: center; padding: 0;
+  }
+  .dias-row {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .dias-label { font-size: 12px; color: var(--text-muted); font-weight: 600; }
+  .dias-input {
+    border: none; background: transparent; outline: none;
+    font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700;
+    color: var(--text-muted); width: 50px; text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ────────────────────────────────── -->
+<div class="header">
+  <div class="header-top">
+    <div class="avatar" id="avatar-text">00</div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
+      <span class="header-date" id="header-date-label"></span>
+      <div class="mode-switch">
+        <button class="mode-btn active" id="btn-pt" onclick="setMode('pt')">Part time</button>
+        <button class="mode-btn" id="btn-ft" onclick="setMode('ft')">Full Time</button>
+      </div>
+    </div>
+  </div>
+  <span class="header-label" id="header-label">Llevas</span>
+  <div class="header-amount" id="header-amount">$0</div>
+  <div class="stat-tabs-wrap">
+    <button class="stat-tab active" data-tab="llevas">Llevas</button>
+    <button class="stat-tab" data-tab="falta">Falta</button>
+    <button class="stat-tab" data-tab="diario">Diario</button>
+  </div>
+</div>
+
+<!-- ── CONTENIDO ─────────────────────────────── -->
+<div class="main">
+  <div class="mode-section active" id="section-pt">
+    <div class="month-tabs" id="tabs-pt"></div>
+    <div id="panels-pt"></div>
+  </div>
+  <div class="mode-section" id="section-ft">
+    <div class="month-tabs" id="tabs-ft"></div>
+    <div id="panels-ft"></div>
+  </div>
+</div>
+
+<!-- ── BARRA INFERIOR ─────────────────────────── -->
+<div class="bottom-nav">
+  <button class="nav-btn active" id="navbtn-home" onclick="setView('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
+    Home
+  </button>
+  <button class="nav-btn" id="navbtn-progress" onclick="setView('progress')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg>
+    Progress
+  </button>
+  <button class="nav-btn" id="navbtn-rewards" onclick="setView('rewards')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="m8.5 7.5-2 9 5.5-2.5 5.5 2.5-2-9"/></svg>
+    Rewards
+  </button>
+  <button class="nav-btn" id="navbtn-menu" onclick="setView('menu')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    Menu
+  </button>
+</div>
+
+<!-- ── MODAL EDICIÓN DÍA ──────────────────────── -->
+<div class="day-edit-overlay" id="day-edit-overlay">
+  <div class="day-edit-box">
+    <p class="day-edit-title" id="day-edit-title"></p>
+    <input type="text" inputmode="numeric" class="day-edit-input" id="day-edit-input" placeholder="$0">
+    <div class="day-edit-actions">
+      <button class="day-edit-cancel" id="day-edit-cancel">Cancelar</button>
+      <button class="day-edit-save" id="day-edit-save">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── CELEBRACIÓN ────────────────────────────── -->
+<div class="celebration-overlay" id="celebration-overlay">
+  <div class="celebration-box" id="celebration-box"></div>
+</div>
+
+<!-- ── WELCOME ───────────────────────────────── -->
+<div class="welcome-overlay" id="welcome-overlay" style="display:none;">
+  <div class="welcome-box">
+    <h2>¡Bienvenido/a! 👋</h2>
+    <p>¿Cómo te llamas?</p>
+    <input type="text" class="welcome-input" id="welcome-input" placeholder="Tu nombre" maxlength="30">
+    <button class="welcome-btn" id="welcome-btn">Continuar</button>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+// ── DATOS ──────────────────────────────────────────────────────────────
+const MONTHS_PT = [
+  { key:'pt_jun', label:'Jun', labelFull:'Junio 2026', meta:4000000, dates:[['30-05','Sáb'],['31-05','Dom'],['06-06','Sáb'],['07-06','Dom'],['13-06','Sáb'],['14-06','Dom'],['20-06','Sáb'],['21-06','Dom'],['27-06','Sáb'],['28-06','Dom']] },
+  { key:'pt_jul', label:'Jul', labelFull:'Julio 2026', meta:4000000, dates:[['04-07','Sáb'],['05-07','Dom'],['11-07','Sáb'],['12-07','Dom'],['18-07','Sáb'],['19-07','Dom'],['25-07','Sáb'],['26-07','Dom']] },
+  { key:'pt_ago', label:'Ago', labelFull:'Agosto 2026', meta:4000000, dates:[['01-08','Sáb'],['02-08','Dom'],['08-08','Sáb'],['09-08','Dom'],['15-08','Sáb'],['16-08','Dom'],['22-08','Sáb'],['23-08','Dom']] },
+  { key:'pt_sep', label:'Sep', labelFull:'Septiembre 2026', meta:4000000, dates:[['29-08','Sáb'],['30-08','Dom'],['05-09','Sáb'],['06-09','Dom'],['12-09','Sáb'],['13-09','Dom'],['19-09','Sáb'],['20-09','Dom'],['26-09','Sáb'],['27-09','Dom']] },
+  { key:'pt_oct', label:'Oct', labelFull:'Octubre 2026', meta:4000000, dates:[['03-10','Sáb'],['04-10','Dom'],['10-10','Sáb'],['11-10','Dom'],['17-10','Sáb'],['18-10','Dom'],['24-10','Sáb'],['25-10','Dom']] },
+  { key:'pt_nov', label:'Nov', labelFull:'Noviembre 2026', meta:4000000, dates:[['31-10','Sáb'],['01-11','Dom'],['07-11','Sáb'],['08-11','Dom'],['14-11','Sáb'],['15-11','Dom'],['21-11','Sáb'],['22-11','Dom'],['28-11','Sáb']] },
+  { key:'pt_dic', label:'Dic', labelFull:'Diciembre 2026', meta:4000000, dates:[['29-11','Dom'],['05-12','Sáb'],['06-12','Dom'],['12-12','Sáb'],['13-12','Dom'],['19-12','Sáb'],['20-12','Dom'],['26-12','Sáb'],['27-12','Dom']] },
+];
+const MONTHS_FT = [
+  { key:'jun_ft', label:'Jun', labelFull:'Junio 2026', meta:4000000, dates:[['29-05','Vie'],['30-05','Sáb'],['31-05','Dom'],['01-06','Lun'],['02-06','Mar'],['03-06','Mié'],['04-06','Jue'],['05-06','Vie'],['06-06','Sáb'],['07-06','Dom'],['08-06','Lun'],['09-06','Mar'],['10-06','Mié'],['11-06','Jue'],['12-06','Vie'],['13-06','Sáb'],['14-06','Dom'],['15-06','Lun'],['16-06','Mar'],['17-06','Mié'],['18-06','Jue'],['19-06','Vie'],['20-06','Sáb'],['21-06','Dom'],['22-06','Lun'],['23-06','Mar'],['24-06','Mié'],['25-06','Jue'],['26-06','Vie'],['27-06','Sáb'],['28-06','Dom']] },
+  { key:'jul_ft', label:'Jul', labelFull:'Julio 2026', meta:4000000, dates:[['29-06','Lun'],['30-06','Mar'],['01-07','Mié'],['02-07','Jue'],['03-07','Vie'],['04-07','Sáb'],['05-07','Dom'],['06-07','Lun'],['07-07','Mar'],['08-07','Mié'],['09-07','Jue'],['10-07','Vie'],['11-07','Sáb'],['12-07','Dom'],['13-07','Lun'],['14-07','Mar'],['15-07','Mié'],['16-07','Jue'],['17-07','Vie'],['18-07','Sáb'],['19-07','Dom'],['20-07','Lun'],['21-07','Mar'],['22-07','Mié'],['23-07','Jue'],['24-07','Vie'],['25-07','Sáb'],['26-07','Dom'],['27-07','Lun'],['28-07','Mar']] },
+  { key:'ago_ft', label:'Ago', labelFull:'Agosto 2026', meta:4000000, dates:[['29-07','Mié'],['30-07','Jue'],['31-07','Vie'],['01-08','Sáb'],['02-08','Dom'],['03-08','Lun'],['04-08','Mar'],['05-08','Mié'],['06-08','Jue'],['07-08','Vie'],['08-08','Sáb'],['09-08','Dom'],['10-08','Lun'],['11-08','Mar'],['12-08','Mié'],['13-08','Jue'],['14-08','Vie'],['15-08','Sáb'],['16-08','Dom'],['17-08','Lun'],['18-08','Mar'],['19-08','Mié'],['20-08','Jue'],['21-08','Vie'],['22-08','Sáb'],['23-08','Dom'],['24-08','Lun'],['25-08','Mar'],['26-08','Mié'],['27-08','Jue'],['28-08','Vie']] },
+  { key:'sep_ft', label:'Sep', labelFull:'Septiembre 2026', meta:4000000, dates:[['29-08','Sáb'],['30-08','Dom'],['31-08','Lun'],['01-09','Mar'],['02-09','Mié'],['03-09','Jue'],['04-09','Vie'],['05-09','Sáb'],['06-09','Dom'],['07-09','Lun'],['08-09','Mar'],['09-09','Mié'],['10-09','Jue'],['11-09','Vie'],['12-09','Sáb'],['13-09','Dom'],['14-09','Lun'],['15-09','Mar'],['16-09','Mié'],['17-09','Jue'],['18-09','Vie'],['19-09','Sáb'],['20-09','Dom'],['21-09','Lun'],['22-09','Mar'],['23-09','Mié'],['24-09','Jue'],['25-09','Vie'],['26-09','Sáb'],['27-09','Dom'],['28-09','Lun']] },
+  { key:'oct_ft', label:'Oct', labelFull:'Octubre 2026', meta:4000000, dates:[['29-09','Mar'],['30-09','Mié'],['01-10','Jue'],['02-10','Vie'],['03-10','Sáb'],['04-10','Dom'],['05-10','Lun'],['06-10','Mar'],['07-10','Mié'],['08-10','Jue'],['09-10','Vie'],['10-10','Sáb'],['11-10','Dom'],['12-10','Lun'],['13-10','Mar'],['14-10','Mié'],['15-10','Jue'],['16-10','Vie'],['17-10','Sáb'],['18-10','Dom'],['19-10','Lun'],['20-10','Mar'],['21-10','Mié'],['22-10','Jue'],['23-10','Vie'],['24-10','Sáb'],['25-10','Dom'],['26-10','Lun'],['27-10','Mar'],['28-10','Mié']] },
+  { key:'nov_ft', label:'Nov', labelFull:'Noviembre 2026', meta:4000000, dates:[['29-10','Jue'],['30-10','Vie'],['31-10','Sáb'],['01-11','Dom'],['02-11','Lun'],['03-11','Mar'],['04-11','Mié'],['05-11','Jue'],['06-11','Vie'],['07-11','Sáb'],['08-11','Dom'],['09-11','Lun'],['10-11','Mar'],['11-11','Mié'],['12-11','Jue'],['13-11','Vie'],['14-11','Sáb'],['15-11','Dom'],['16-11','Lun'],['17-11','Mar'],['18-11','Mié'],['19-11','Jue'],['20-11','Vie'],['21-11','Sáb'],['22-11','Dom'],['23-11','Lun'],['24-11','Mar'],['25-11','Mié'],['26-11','Jue'],['27-11','Vie'],['28-11','Sáb']] },
+  { key:'dic_ft', label:'Dic', labelFull:'Diciembre 2026', meta:4000000, dates:[['29-11','Dom'],['30-11','Lun'],['01-12','Mar'],['02-12','Mié'],['03-12','Jue'],['04-12','Vie'],['05-12','Sáb'],['06-12','Dom'],['07-12','Lun'],['08-12','Mar'],['09-12','Mié'],['10-12','Jue'],['11-12','Vie'],['12-12','Sáb'],['13-12','Dom'],['14-12','Lun'],['15-12','Mar'],['16-12','Mié'],['17-12','Jue'],['18-12','Vie'],['19-12','Sáb'],['20-12','Dom'],['21-12','Lun'],['22-12','Mar'],['23-12','Mié'],['24-12','Jue'],['25-12','Vie'],['26-12','Sáb'],['27-12','Dom'],['28-12','Lun']] },
+];
+
+// ── UTILES ─────────────────────────────────────────────────────────────
+const fmt = n => '$' + Math.round(n).toLocaleString('es-CL');
+const parseCur = str => { const d = String(str).replace(/[^0-9]/g,''); return d ? parseInt(d,10) : 0; };
+const sk = k => 'mv2026_' + k;
+function loadData(m) {
+  let s={}; try{ s=JSON.parse(localStorage.getItem(sk(m.key)))||{}; }catch(e){}
+  return { ventas: s.ventas||new Array(m.dates.length).fill(0), dias: s.dias||m.dates.length, meta: s.meta||m.meta };
+}
+function saveData(m, state) { localStorage.setItem(sk(m.key), JSON.stringify(state)); }
+
+// ── ESTADO GLOBAL ──────────────────────────────────────────────────────
+let currentMode = localStorage.getItem('modo_2026') || 'pt';
+let currentView = 'home';
+let currentTab = 'llevas';
+let activeKey = null;
+const calState = {};
+const charts = {};
+const globalStats = {};
+
+// ── FECHA EN HEADER ─────────────────────────────────────────────────────
+function setHeaderDate() {
+  const now = new Date();
+  const dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
+  const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  document.getElementById('header-date-label').textContent =
+    dias[now.getDay()].charAt(0).toUpperCase() + dias[now.getDay()].slice(1) + ', ' +
+    now.getDate() + ' ' + meses[now.getMonth()];
+}
+setHeaderDate();
+
+// ── BIENVENIDA ─────────────────────────────────────────────────────────
+function initWelcome() {
+  const name = localStorage.getItem('user_name_2026');
+  if (!name) {
+    document.getElementById('welcome-overlay').style.display = 'flex';
+    const inp = document.getElementById('welcome-input');
+    const btn = document.getElementById('welcome-btn');
+    const save = () => {
+      const v = inp.value.trim(); if (!v) { inp.focus(); return; }
+      localStorage.setItem('user_name_2026', v);
+      document.getElementById('welcome-overlay').style.display = 'none';
+      updateAvatar();
+    };
+    btn.onclick = save; inp.onkeydown = e => { if(e.key==='Enter') save(); };
+  }
+  updateAvatar();
+}
+function updateAvatar() {
+  const name = localStorage.getItem('user_name_2026') || '';
+  document.getElementById('avatar-text').textContent = name ? name.substring(0,2).toUpperCase() : '00';
+}
+
+// ── MODO ───────────────────────────────────────────────────────────────
+function setMode(mode) {
+  currentMode = mode;
+  localStorage.setItem('modo_2026', mode);
+  document.getElementById('section-pt').classList.toggle('active', mode==='pt');
+  document.getElementById('section-ft').classList.toggle('active', mode==='ft');
+  document.getElementById('btn-pt').classList.toggle('active', mode==='pt');
+  document.getElementById('btn-ft').classList.toggle('active', mode==='ft');
+  updateHeader();
+}
+
+// ── VISTA ──────────────────────────────────────────────────────────────
+function setView(view) {
+  currentView = view;
+  ['home','progress','rewards','menu'].forEach(v => {
+    document.getElementById('navbtn-'+v).classList.toggle('active', v===view);
+  });
+  document.querySelectorAll('.view-page').forEach(el => {
+    el.classList.toggle('active', el.dataset.view===view);
+  });
+}
+
+// ── STAT TAB ──────────────────────────────────────────────────────────
+document.querySelectorAll('.stat-tab').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.stat-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentTab = btn.dataset.tab;
+    updateHeader();
+  };
+});
+
+function updateHeader() {
+  if (!activeKey || !globalStats[activeKey]) return;
+  const { total, falta, necesarioPorDia } = globalStats[activeKey];
+  const labels = { llevas:'Llevas', falta:'Falta', diario:'Necesitas/día' };
+  document.getElementById('header-label').textContent = labels[currentTab]||'Llevas';
+  let val = total;
+  if (currentTab==='falta') val = falta;
+  if (currentTab==='diario') val = necesarioPorDia;
+  document.getElementById('header-amount').textContent = fmt(val);
+}
+
+// ── CELEBRACIÓN ────────────────────────────────────────────────────────
+function showCelebration(text, success) {
+  const ov = document.getElementById('celebration-overlay');
+  const box = document.getElementById('celebration-box');
+  box.textContent = text;
+  box.className = 'celebration-box' + (success?'':' sad');
+  ov.classList.add('show');
+  setTimeout(() => ov.classList.remove('show'), 2500);
+}
+
+// ── CONSTRUCCIÓN DE PANEL ──────────────────────────────────────────────
+function buildPanel(m, tabsEl, panelsEl, isFT) {
+  const btn = document.createElement('button');
+  btn.className = 'month-tab';
+  btn.textContent = m.label;
+  btn.dataset.key = m.key;
+  btn.onclick = () => switchTab(m.key, tabsEl, panelsEl);
+  tabsEl.appendChild(btn);
+
+  const panel = document.createElement('div');
+  panel.className = 'month-panel';
+  panel.id = 'panel-' + m.key;
+
+  const now = new Date();
+  const todayDM = String(now.getDate()).padStart(2,'0') + '-' + String(now.getMonth()+1).padStart(2,'0');
+  const todayIdx = m.dates.findIndex(d => d[0]===todayDM);
+
+  const todayHtml = todayIdx !== -1
+    ? `<div class="question-input-wrap">
+         <input type="text" inputmode="numeric" class="question-input" id="today-inp-${m.key}" placeholder="$0">
+         <button class="question-btn" id="today-btn-${m.key}">Guardar</button>
+       </div>`
+    : `<p class="today-no-match">Hoy no es un día de trabajo en este período.</p>`;
+
+  panel.innerHTML = `
+    <div class="view-page active" data-view="home">
+      <p class="question-label">¿Cuánto vendiste hoy?</p>
+      ${todayHtml}
+      <div class="meta-progress-row">
+        <div class="meta-card">
+          <div class="meta-card-top">
+            <span class="meta-card-label">Meta del mes</span>
+            <input type="number" class="meta-input" id="meta-${m.key}" value="${m.meta}" min="0">
+          </div>
+          <div class="meta-card-bottom">
+            <span class="comision-label">Comisión estimada</span>
+            <span class="comision-value" id="comision-${m.key}">$0</span>
+          </div>
+        </div>
+        <div class="progress-card">
+          <div class="progress-text">Pro\ngre\nso</div>
+          <div class="donut-wrap">
+            <svg class="donut-svg" viewBox="0 0 36 36">
+              <circle class="donut-bg" cx="18" cy="18" r="15.9"/>
+              <circle class="donut-fill" id="donut-${m.key}" cx="18" cy="18" r="15.9"/>
+            </svg>
+            <div class="donut-pct" id="pct-${m.key}">0%</div>
+          </div>
+        </div>
+      </div>
+      <div class="calendar-card">
+        <div class="calendar-nav-row">
+          <button class="cal-nav-btn" id="cal-prev-${m.key}">‹</button>
+          <span class="calendar-title" id="cal-title-${m.key}">${m.labelFull}</span>
+          <button class="cal-nav-btn" id="cal-next-${m.key}">›</button>
+        </div>
+        <div class="calendar-week" id="cal-week-${m.key}"></div>
+      </div>
+      <div class="dias-row">
+        <span class="dias-label">Días trabajados: <input type="number" class="dias-input" id="dias-${m.key}" value="${m.dates.length}" min="1"></span>
+        <button class="reset-btn" data-key="${m.key}">Reiniciar</button>
+      </div>
+    </div>
+    <div class="view-page" data-view="progress">
+      <div class="chart-wrap">
+        <p class="chart-label">Progreso hacia la meta</p>
+        <div class="progress-bar-big"><div class="progress-bar-fill" id="pgbar-${m.key}"><span id="pgpct-${m.key}">0%</span></div></div>
+      </div>
+      <div class="chart-wrap">
+        <p class="chart-label">Ventas por día vs meta diaria</p>
+        <div style="position:relative;width:100%;height:220px;"><canvas id="chart-${m.key}"></canvas></div>
+      </div>
+      <div class="progress-stats">
+        <div class="stat-row"><span class="stat-row-label">Vendido</span><span class="stat-row-value" id="vendido-${m.key}">$0</span></div>
+        <div class="stat-row"><span class="stat-row-label">Falta</span><span class="stat-row-value" id="falta2-${m.key}">$0</span></div>
+        <div class="stat-row"><span class="stat-row-label">Necesitas/día</span><span class="stat-row-value" id="nd2-${m.key}">$0</span></div>
+      </div>
+    </div>
+    <div class="view-page" data-view="rewards"><div class="placeholder-card">🏆 Próximamente</div></div>
+    <div class="view-page" data-view="menu"><div class="placeholder-card">⚙️ Próximamente</div></div>
+  `;
+  panelsEl.appendChild(panel);
+}
+
+function switchTab(key, tabsEl, panelsEl) {
+  tabsEl.querySelectorAll('.month-tab').forEach(b => b.classList.toggle('active', b.dataset.key===key));
+  panelsEl.querySelectorAll('.month-panel').forEach(p => p.classList.toggle('active', p.id==='panel-'+key));
+  activeKey = key;
+  updateHeader();
+}
+
+// ── CALENDARIO ─────────────────────────────────────────────────────────
+function renderCal(m, ventas, metaDiaria) {
+  const wIdx = calState[m.key]||0;
+  const totalW = Math.ceil(m.dates.length/7);
+  const startIdx = wIdx*7;
+  const weekDates = m.dates.slice(startIdx, startIdx+7);
+  const now = new Date();
+  const todayDM = String(now.getDate()).padStart(2,'0')+'-'+String(now.getMonth()+1).padStart(2,'0');
+
+  const el = document.getElementById('cal-week-'+m.key);
+  el.innerHTML = '';
+
+  weekDates.forEach((d, i) => {
+    const idx = startIdx + i;
+    const v = ventas[idx]||0;
+    const isToday = d[0]===todayDM;
+
+    const wrap = document.createElement('div');
+    wrap.className = 'cal-day-wrap';
+
+    const lbl = document.createElement('div');
+    lbl.className = 'cal-lbl';
+    lbl.textContent = d[1].substring(0,3);
+    wrap.appendChild(lbl);
+
+    const day = document.createElement('button');
+    day.className = 'cal-day';
+    if (isToday) day.classList.add('today');
+    else if (v>0 && v>=metaDiaria) day.classList.add('success');
+    else if (v>0) day.classList.add('has-sale');
+    day.textContent = d[0].split('-')[0];
+    day.onclick = () => openDayEdit(m, idx, d);
+    wrap.appendChild(day);
+    el.appendChild(wrap);
+  });
+
+  for(let i=weekDates.length; i<7; i++) el.appendChild(document.createElement('div'));
+
+  document.getElementById('cal-prev-'+m.key).disabled = wIdx<=0;
+  document.getElementById('cal-next-'+m.key).disabled = wIdx>=totalW-1;
+}
+
+// ── EDICIÓN DÍA ────────────────────────────────────────────────────────
+let dayCtx = null;
+function openDayEdit(m, idx, d) {
+  dayCtx = { m, idx };
+  const map={'Lun':'lunes','Mar':'martes','Mié':'miércoles','Jue':'jueves','Vie':'viernes','Sáb':'sábado','Dom':'domingo'};
+  document.getElementById('day-edit-title').textContent = `${map[d[1]]||d[1]} ${d[0]}`;
+  const cur = (window['vc_'+m.key]||[])[idx]||0;
+  const inp = document.getElementById('day-edit-input');
+  inp.value = cur>0 ? cur.toLocaleString('es-CL') : '';
+  document.getElementById('day-edit-overlay').classList.add('show');
+  setTimeout(()=>inp.focus(),100);
+}
+document.getElementById('day-edit-cancel').onclick = () => document.getElementById('day-edit-overlay').classList.remove('show');
+document.getElementById('day-edit-save').onclick = () => {
+  if (!dayCtx) return;
+  const {m, idx} = dayCtx;
+  window['setV_'+m.key](idx, parseCur(document.getElementById('day-edit-input').value));
+  document.getElementById('day-edit-overlay').classList.remove('show');
+};
+
+// ── SETUP MES ──────────────────────────────────────────────────────────
+function setupMonth(m, isFT) {
+  const state = loadData(m);
+  let ventas = state.ventas.slice();
+  let dias = state.dias;
+  let meta = state.meta;
+  calState[m.key] = 0;
+  window['vc_'+m.key] = ventas;
+
+  document.getElementById('meta-'+m.key).value = meta;
+  document.getElementById('dias-'+m.key).value = dias;
+
+  const now = new Date();
+  const todayDM = String(now.getDate()).padStart(2,'0')+'-'+String(now.getMonth()+1).padStart(2,'0');
+  const todayIdx = m.dates.findIndex(d => d[0]===todayDM);
+  if (todayIdx!==-1) calState[m.key] = Math.floor(todayIdx/7);
+
+  let monthCelebrated = ventas.filter(v=>v>0).length===(isFT?dias:ventas.length) && ventas.length>0;
+
+  function update(triggeredIdx) {
+    meta = parseFloat(document.getElementById('meta-'+m.key).value)||1;
+    dias = parseFloat(document.getElementById('dias-'+m.key).value)||1;
+    const metaDiaria = meta/dias;
+    const total = ventas.reduce((a,b)=>a+b,0);
+    const pct = Math.min(total/meta,1);
+    const trabajados = ventas.filter(v=>v>0).length;
+    const diasRest = Math.max(dias-trabajados,0);
+    const falta = Math.max(meta-total,0);
+    const ndp = diasRest>0 ? falta/diasRest : (falta>0?falta:0);
+
+    // Donut — circunferencia r=15.9 → 2πr ≈ 99.9
+    const circ = 99.9;
+    const dEl = document.getElementById('donut-'+m.key);
+    if (dEl) { dEl.style.strokeDasharray=circ; dEl.style.strokeDashoffset=circ*(1-pct); }
+    const pEl = document.getElementById('pct-'+m.key);
+    if (pEl) pEl.textContent = (pct*100).toFixed(0)+'%';
+
+    // Comisión = 0
+    const cEl = document.getElementById('comision-'+m.key);
+    if (cEl) cEl.textContent = '$0';
+
+    // Progress view
+    const vEl = document.getElementById('vendido-'+m.key);
+    if (vEl) vEl.textContent = fmt(total);
+    const f2El = document.getElementById('falta2-'+m.key);
+    if (f2El) f2El.textContent = fmt(falta);
+    const ndEl = document.getElementById('nd2-'+m.key);
+    if (ndEl) ndEl.textContent = fmt(ndp);
+    const pgEl = document.getElementById('pgbar-'+m.key);
+    if (pgEl) pgEl.style.width = (pct*100)+'%';
+    const pgPct = document.getElementById('pgpct-'+m.key);
+    if (pgPct) pgPct.textContent = (pct*100).toFixed(0)+'%';
+
+    globalStats[m.key] = { total, falta, necesarioPorDia:ndp };
+    if (m.key===activeKey) updateHeader();
+
+    renderCal(m, ventas, metaDiaria);
+
+    const metaArr = new Array(m.dates.length).fill(metaDiaria);
+    if (charts[m.key]) {
+      charts[m.key].data.datasets[0].data = ventas;
+      charts[m.key].data.datasets[1].data = metaArr;
+      charts[m.key].update();
+    } else {
+      const c = document.getElementById('chart-'+m.key);
+      if (c) {
+        charts[m.key] = new Chart(c, {
+          type:'bar',
+          data:{ labels:m.dates.map(d=>d[0]), datasets:[
+            {label:'Venta',data:ventas,backgroundColor:'#FF8C00'},
+            {label:'Meta diaria',data:metaArr,backgroundColor:'#F9E5CA'}
+          ]},
+          options:{
+            responsive:true,maintainAspectRatio:false,
+            plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,font:{size:10}}}},
+            scales:{y:{ticks:{callback:v=>'$'+(v/1000)+'k'}}}
+          }
+        });
+      }
+    }
+
+    if (triggeredIdx!==undefined) {
+      const v = ventas[triggeredIdx];
+      if (v>0) {
+        const ratio = v/metaDiaria;
+        if (ratio>=1) showCelebration('vamooos! 🔥', true);
+        else if (ratio>=0.5) showCelebration('Uff casi', false);
+        else showCelebration('Pa´la otra 😔', false);
+      }
+      const completado = isFT ? (trabajados>=dias) : ventas.every(v=>v>0);
+      if (completado && !monthCelebrated) {
+        monthCelebrated = true;
+        setTimeout(()=>showCelebration(pct>=1?'felicidades hoy se come 🤑':'hoy no se come 😔',pct>=1),2700);
+      } else if (!completado) { monthCelebrated=false; }
+    }
+    saveData(m, {ventas, dias, meta});
+  }
+
+  window['setV_'+m.key] = (idx, val) => {
+    ventas[idx] = val;
+    window['vc_'+m.key] = ventas;
+    if (idx===todayIdx) {
+      const inp = document.getElementById('today-inp-'+m.key);
+      if (inp) inp.value = val>0 ? val.toLocaleString('es-CL') : '';
+    }
+    update(idx);
+  };
+
+  if (todayIdx!==-1) {
+    const inp = document.getElementById('today-inp-'+m.key);
+    const btn = document.getElementById('today-btn-'+m.key);
+    if (inp && btn) {
+      if ((ventas[todayIdx]||0)>0) inp.value=(ventas[todayIdx]).toLocaleString('es-CL');
+      const save = () => {
+        window['setV_'+m.key](todayIdx, parseCur(inp.value));
+        inp.value = (ventas[todayIdx]||0)>0 ? ventas[todayIdx].toLocaleString('es-CL') : '';
+      };
+      btn.onclick = save;
+      inp.onkeydown = e => { if(e.key==='Enter') save(); };
+    }
+  }
+
+  document.getElementById('meta-'+m.key).oninput = () => update();
+  document.getElementById('dias-'+m.key).oninput = () => update();
+  document.getElementById('cal-prev-'+m.key).onclick = () => {
+    calState[m.key] = Math.max(0,(calState[m.key]||0)-1);
+    renderCal(m, ventas, meta/dias);
+  };
+  document.getElementById('cal-next-'+m.key).onclick = () => {
+    const tw = Math.ceil(m.dates.length/7);
+    calState[m.key] = Math.min(tw-1,(calState[m.key]||0)+1);
+    renderCal(m, ventas, meta/dias);
+  };
+  document.querySelector(`.reset-btn[data-key="${m.key}"]`).onclick = () => {
+    if (confirm(`¿Reiniciar datos de ${m.labelFull}?`)) {
+      ventas = new Array(m.dates.length).fill(0);
+      window['vc_'+m.key] = ventas;
+      update();
+    }
+  };
+
+  update();
+}
+
+// ── INIT ───────────────────────────────────────────────────────────────
+initWelcome();
+setMode(currentMode);
+setView('home');
+
+const tabsPT = document.getElementById('tabs-pt');
+const panelsPT = document.getElementById('panels-pt');
+MONTHS_PT.forEach(m => buildPanel(m, tabsPT, panelsPT, false));
+switchTab(MONTHS_PT[0].key, tabsPT, panelsPT);
+MONTHS_PT.forEach(m => setupMonth(m, false));
+
+const tabsFT = document.getElementById('tabs-ft');
+const panelsFT = document.getElementById('panels-ft');
+MONTHS_FT.forEach(m => buildPanel(m, tabsFT, panelsFT, true));
+switchTab(MONTHS_FT[0].key, tabsFT, panelsFT);
+MONTHS_FT.forEach(m => setupMonth(m, true));
+</script>
+</body>
+</html>
