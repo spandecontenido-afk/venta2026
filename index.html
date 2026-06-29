@@ -1,1012 +1,1681 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Meta Ventas 2026</title>
-<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
-<link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
-<link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
-<link rel="apple-touch-icon" sizes="120x120" href="icon-120.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Meta Ventas">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --orange: #FF8C00;
-    --bg: #F9E5CA;
-    --card: #FFF1DF;
-    --text-muted: #A48255;
-    --text-dark: #1a1a1a;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-  html, body {
-    width: 100%; min-height: 100vh;
-    background: var(--bg);
-    font-family: 'Nunito', sans-serif;
-    overflow-x: hidden;
-    padding-bottom: 80px;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Home</title>
+  <style>
+    :root {
+      --orange-primary: #FF8C00;
+      --orange-soft: #F29D35;
+      --background: #F9E5CA;
+      --card: #FFF1DF;
+      --brown: #A48255;
+      --brown-soft: #CC9C5B;
+      --white: #FFFFFF;
+      --font-main: 'ITC Avant Garde Gothic Pro', 'Avant Garde', 'Century Gothic', 'Avenir Next', Arial, sans-serif;
+    }
 
-  /* ─────────────────────────────────────────
-     HEADER NARANJA — height 231px, border-radius bottom 30px
-  ───────────────────────────────────────── */
-  .header {
-    width: 100%;
-    background: var(--orange);
-    border-radius: 0 0 30px 30px;
-    padding: 22px 18px 28px;
-    position: relative;
-  }
-  .header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-  }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  /* Avatar "00" — círculo #F29D35, 34.75x33.75px */
-  .avatar {
-    width: 35px; height: 34px;
-    background: #F29D35;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px; font-weight: 700; color: #fff;
-    flex-shrink: 0;
-  }
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      background: var(--background);
+      font-family: var(--font-main);
+    }
 
-  /* Switch Part time / Full Time — fondo #F9E5CA, radius 68px */
-  .mode-switch {
-    background: var(--bg);
-    border-radius: 68px;
-    padding: 3px;
-    display: flex;
-    gap: 0;
-  }
-  .mode-btn {
-    border: none; outline: none; cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    font-size: 13px; font-weight: 500;
-    border-radius: 29px;
-    padding: 4px 12px;
-    background: transparent;
-    color: var(--orange);
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .mode-btn.active {
-    background: var(--orange);
-    color: var(--card);
-  }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: hidden;
+    }
 
-  /* Fecha arriba derecha */
-  .header-date {
-    font-size: 8.7px; font-weight: 500; color: var(--bg);
-    text-align: right; margin-bottom: 4px;
-    display: block;
-  }
+    button,
+    input {
+      font-family: inherit;
+    }
 
-  /* Label "Llevas" */
-  .header-label {
-    font-size: 13px; font-weight: 500; color: #fff;
-    margin-bottom: 2px; display: block;
-  }
+    .phone {
+      position: relative;
+      width: 375px;
+      height: 812px;
+      max-width: 100vw;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background: var(--background);
+      scrollbar-width: none;
+    }
 
-  /* Monto principal $0 — 53.625px */
-  .header-amount {
-    font-size: 54px; font-weight: 600; color: #fff;
-    line-height: 1; margin-bottom: 14px;
-    letter-spacing: -2px;
-    transition: all 0.3s ease;
-  }
+    .phone::-webkit-scrollbar {
+      display: none;
+    }
 
-  /* Tabs Llevas/Falta/Diario — fondo #F9E5CA, radius 72px */
-  .stat-tabs-wrap {
-    background: var(--bg);
-    border-radius: 72px;
-    padding: 3px 4px;
-    display: inline-flex;
-    gap: 0;
-  }
-  .stat-tab {
-    border: none; outline: none; cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    font-size: 10.86px; font-weight: 600;
-    padding: 4px 14px;
-    border-radius: 117px;
-    background: transparent;
-    color: #CC9C5B;
-    transition: all 0.2s;
-  }
-  .stat-tab.active {
-    background: var(--orange);
-    color: var(--bg);
-  }
+    .screen {
+      position: relative;
+      width: 375px;
+      min-height: 1031px;
+      background: var(--background);
+    }
 
-  /* ─────────────────────────────────────────
-     CONTENEDOR PRINCIPAL
-  ───────────────────────────────────────── */
-  .main {
-    padding: 18px 18px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    max-width: 480px;
-    margin: 0 auto;
-  }
+    .gradient {
+      position: absolute;
+      width: 377px;
+      height: 762px;
+      left: -2px;
+      top: -1px;
+      background: linear-gradient(180deg, #FF8C00 38.46%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
+    }
 
-  /* ─────────────────────────────────────────
-     TABS DE MES — píldoras
-  ───────────────────────────────────────── */
-  .month-tabs {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-  .month-tabs::-webkit-scrollbar { display: none; }
-  .month-tab {
-    flex: 0 0 auto;
-    border: 0.952px solid var(--orange);
-    border-radius: 48.56px;
-    padding: 4px 10px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 12.38px; font-weight: 600;
-    color: var(--orange);
-    background: transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-  .month-tab.active {
-    background: var(--orange);
-    color: var(--bg);
-    border-color: var(--orange);
-  }
+    .profile-badge {
+      position: absolute;
+      width: 34.75px;
+      height: 33.75px;
+      left: 18px;
+      top: 22px;
+      border: 0;
+      border-radius: 25.35px;
+      background: var(--orange-soft);
+      color: var(--white);
+      font-size: 19.6308px;
+      font-weight: 700;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4.87499px;
+    }
 
-  /* ─────────────────────────────────────────
-     PREGUNTA "¿Cuánto vendiste hoy?"
-  ───────────────────────────────────────── */
-  .question-label {
-    font-size: 20.89px; font-weight: 600;
-    color: var(--orange);
-    text-align: center;
-    margin-bottom: 8px;
-  }
-  .question-input-wrap {
-    background: var(--card);
-    border-radius: 21px;
-    padding: 12px 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .question-input {
-    border: none; background: transparent; outline: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 20px; font-weight: 600; color: var(--orange);
-    width: 100%;
-  }
-  .question-btn {
-    background: var(--orange); color: #fff; border: none;
-    border-radius: 999px; padding: 8px 16px;
-    font-size: 13px; font-weight: 700; cursor: pointer;
-    font-family: 'Nunito', sans-serif; white-space: nowrap;
-  }
-  .today-no-match {
-    font-size: 13px; color: var(--text-muted); font-weight: 600;
-    text-align: center;
-  }
+    .work-switch {
+      position: absolute;
+      width: 142px;
+      height: 25px;
+      left: 222px;
+      top: 30px;
+      border-radius: 68px;
+      background: var(--background);
+      border: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: visible;
+      cursor: pointer;
+    }
 
-  /* ─────────────────────────────────────────
-     GRID META + PROGRESO
-  ───────────────────────────────────────── */
-  .meta-progress-row {
-    display: flex;
-    gap: 12px;
-    align-items: stretch;
-  }
+    .work-switch::before {
+      content: "";
+      position: absolute;
+      width: 72px;
+      height: 19.21px;
+      left: 3px;
+      top: 2.89px;
+      border-radius: 28.911px;
+      background: var(--orange-primary);
+      transition: transform 260ms cubic-bezier(.2,.8,.2,1);
+      z-index: 1;
+    }
 
-  /* Card Meta del mes — fondo #FFF1DF, radius 21px, 162x115px proporcional */
-  .meta-card {
-    background: var(--card);
-    border-radius: 21px;
-    padding: 13px 16px 14px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .meta-card-top { display: flex; flex-direction: column; gap: 2px; }
-  .meta-card-label {
-    font-size: 8.29px; font-weight: 300; color: var(--orange);
-    line-height: 1.2;
-  }
-  .meta-card-value {
-    font-size: 21.56px; font-weight: 500; color: var(--orange);
-    line-height: 1.2;
-  }
-  .meta-input {
-    border: none; background: transparent; outline: none;
-    font-family: 'Nunito', sans-serif;
-    font-size: 21.56px; font-weight: 500; color: var(--orange);
-    width: 100%; padding: 0;
-  }
-  .meta-card-bottom { display: flex; flex-direction: column; gap: 2px; }
-  .comision-label {
-    font-size: 8.29px; font-weight: 300; color: var(--orange);
-  }
-  .comision-value {
-    font-size: 21.56px; font-weight: 500; color: var(--orange);
-  }
+    .work-switch.full::before {
+      transform: translateX(64px);
+    }
 
-  /* Card Progreso — fondo #FFF1DF, radius 21px */
-  .progress-card {
-    background: var(--card);
-    border-radius: 21px;
-    padding: 13px 14px 14px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-  }
-  /* Texto "Pro gre so" vertical — 28.874px */
-  .progress-text {
-    font-size: 28.87px; font-weight: 600; color: var(--orange);
-    line-height: 1.2; text-align: center;
-    white-space: pre-line;
-    flex-shrink: 0;
-  }
-  /* Círculo donut — 88x88px, border 10px */
-  .donut-wrap {
-    position: relative;
-    width: 88px; height: 88px;
-    flex-shrink: 0;
-  }
-  .donut-svg {
-    width: 88px; height: 88px;
-    transform: rotate(-90deg);
-  }
-  .donut-bg { fill: none; stroke: #e8cba8; stroke-width: 10; }
-  .donut-fill {
-    fill: none; stroke: var(--orange); stroke-width: 10;
-    stroke-linecap: round;
-    stroke-dasharray: 213.6;
-    stroke-dashoffset: 213.6;
-    transition: stroke-dashoffset 0.5s ease;
-  }
-  .donut-pct {
-    position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20.89px; font-weight: 600; color: var(--orange);
-  }
+    .work-switch span {
+      position: relative;
+      z-index: 2;
+      height: 16px;
+      font-size: 12.6px;
+      font-weight: 500;
+      line-height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 180ms ease;
+      white-space: nowrap;
+    }
 
-  /* ─────────────────────────────────────────
-     CALENDARIO SEMANAL — fondo #FFF1DF, radius 21px
-  ───────────────────────────────────────── */
-  .calendar-card {
-    background: var(--card);
-    border-radius: 21px;
-    padding: 16px 18px 20px;
-  }
-  .calendar-title {
-    font-size: 14.92px; font-weight: 500; color: var(--orange);
-    text-align: center; margin-bottom: 14px;
-  }
-  .calendar-nav-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 14px;
-  }
-  .cal-nav-btn {
-    width: 26px; height: 26px; border-radius: 50%; border: none;
-    background: #fff; color: var(--orange);
-    font-size: 14px; font-weight: 800; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .cal-nav-btn:disabled { opacity: 0.3; cursor: default; }
+    .work-switch .part {
+      width: 72px;
+      color: var(--card);
+      padding-left: 2px;
+    }
 
-  .calendar-week {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    text-align: center;
-    gap: 0;
-  }
-  .cal-lbl {
-    font-size: 11.7px; font-weight: 500; color: var(--text-muted);
-    padding-bottom: 10px;
-  }
-  .cal-day-wrap {
-    display: flex; flex-direction: column; align-items: center; gap: 0;
-  }
-  .cal-day {
-    width: 29px; height: 29px;
-    border-radius: 53.54px;
-    border: none; background: transparent;
-    font-size: 11.7px; font-weight: 500; color: var(--text-muted);
-    cursor: pointer;
-    font-family: 'Nunito', sans-serif;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.2s;
-    margin: 0 auto;
-  }
-  .cal-day.today { background: var(--orange); color: var(--bg); }
-  .cal-day.success:not(.today) { background: var(--orange); color: var(--bg); opacity: 0.65; }
-  .cal-day.has-sale:not(.today) { background: #fff; color: var(--orange); }
+    .work-switch .full {
+      width: 70px;
+      color: var(--orange-primary);
+      padding-right: 2px;
+    }
 
-  /* ─────────────────────────────────────────
-     MODAL EDICIÓN DÍA
-  ───────────────────────────────────────── */
-  .day-edit-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 1500;
-    display: none; align-items: flex-end; justify-content: center;
-  }
-  .day-edit-overlay.show { display: flex; }
-  .day-edit-box {
-    background: #fff; border-radius: 22px 22px 0 0;
-    padding: 24px 20px 36px;
-    width: 100%; max-width: 480px;
-    display: flex; flex-direction: column; gap: 14px;
-  }
-  .day-edit-title { font-size: 16px; font-weight: 800; color: var(--orange); text-transform: capitalize; }
-  .day-edit-input {
-    height: 50px; border: 2px solid #FFD9A0; border-radius: 14px;
-    padding: 0 16px; font-size: 20px; font-weight: 700;
-    color: var(--orange); font-family: 'Nunito', sans-serif; outline: none;
-  }
-  .day-edit-actions { display: flex; gap: 10px; }
-  .day-edit-save, .day-edit-cancel {
-    flex: 1; height: 46px; border: none; border-radius: 12px;
-    font-weight: 800; font-size: 14px; cursor: pointer; font-family: 'Nunito', sans-serif;
-  }
-  .day-edit-save { background: var(--orange); color: #fff; }
-  .day-edit-cancel { background: #f0f0f0; color: #555; }
+    .work-switch.full .part {
+      color: var(--orange-primary);
+    }
 
-  /* ─────────────────────────────────────────
-     BARRA INFERIOR — fondo naranja como en SVG (Rectangle 12)
-     O bien barra blanca con íconos naranja
-  ───────────────────────────────────────── */
-  .bottom-nav {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: #fff;
-    display: flex; justify-content: space-around; align-items: center;
-    padding: 10px 0 max(10px, env(safe-area-inset-bottom));
-    box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
-    z-index: 100;
-  }
-  .nav-btn {
-    background: none; border: none; display: flex; flex-direction: column;
-    align-items: center; gap: 3px; color: #ccc;
-    font-size: 10px; font-weight: 700; cursor: pointer;
-    font-family: 'Nunito', sans-serif; padding: 4px 12px;
-  }
-  .nav-btn.active { color: var(--orange); }
-  .nav-btn svg { width: 22px; height: 22px; }
+    .work-switch.full .full {
+      color: var(--card);
+    }
 
-  /* ─────────────────────────────────────────
-     VISTAS / PANELES
-  ───────────────────────────────────────── */
-  .mode-section { display: none; }
-  .mode-section.active { display: block; }
-  .month-panel { display: none; }
-  .month-panel.active { display: flex; flex-direction: column; gap: 14px; }
-  .view-page { display: none; flex-direction: column; gap: 14px; }
-  .view-page.active { display: flex; }
-  .placeholder-card {
-    background: var(--card); border-radius: 21px; padding: 40px 20px;
-    text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600;
-  }
+    .date-label {
+      position: absolute;
+      width: 59px;
+      height: 10px;
+      left: 296px;
+      top: 71px;
+      font-weight: 500;
+      font-size: 8.66769px;
+      line-height: 10px;
+      color: var(--background);
+      white-space: nowrap;
+    }
 
-  /* ─────────────────────────────────────────
-     PROGRESS VIEW — chart
-  ───────────────────────────────────────── */
-  .chart-wrap {
-    background: var(--card); border-radius: 21px; padding: 16px;
-  }
-  .chart-label { font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 10px; }
-  .progress-bar-big {
-    background: #e8cba8; border-radius: 999px; height: 32px; overflow: hidden; margin-bottom: 10px;
-  }
-  .progress-bar-fill {
-    background: var(--orange); height: 100%; width: 0%; border-radius: 999px;
-    transition: width 0.4s;
-    display: flex; align-items: center; justify-content: flex-end; padding-right: 12px;
-  }
-  .progress-bar-fill span { color: #fff; font-size: 13px; font-weight: 700; }
-  .progress-stats {
-    background: var(--card); border-radius: 21px; padding: 16px 18px;
-    display: flex; flex-direction: column; gap: 10px;
-  }
-  .stat-row { display: flex; justify-content: space-between; align-items: center; }
-  .stat-row-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
-  .stat-row-value { font-size: 15px; font-weight: 700; color: var(--orange); }
+    .metric-caption {
+      position: absolute;
+      width: 39px;
+      height: 16px;
+      left: 53px;
+      top: 82px;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+    }
 
-  /* ─────────────────────────────────────────
-     WELCOME MODAL
-  ───────────────────────────────────────── */
-  .welcome-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 2000;
-    display: flex; align-items: center; justify-content: center; padding: 20px;
-  }
-  .welcome-box {
-    background: #fff; border-radius: 22px; padding: 30px 24px;
-    max-width: 340px; width: 100%; text-align: center;
-  }
-  .welcome-box h2 { color: var(--orange); font-size: 20px; font-weight: 900; margin-bottom: 6px; }
-  .welcome-box p { color: var(--text-muted); font-size: 13px; font-weight: 600; margin-bottom: 18px; }
-  .welcome-input {
-    width: 100%; height: 46px; border: 2px solid #FFD9A0; border-radius: 12px;
-    padding: 0 14px; font-size: 15px; font-family: 'Nunito', sans-serif;
-    font-weight: 700; margin-bottom: 14px; outline: none;
-  }
-  .welcome-btn {
-    width: 100%; height: 46px; border: none; border-radius: 12px;
-    background: var(--orange); color: #fff; font-weight: 800; font-size: 15px;
-    cursor: pointer; font-family: 'Nunito', sans-serif;
-  }
+    .main-amount {
+      position: absolute;
+      width: 250px;
+      height: 64px;
+      left: 48px;
+      top: 108px;
+      font-weight: 600;
+      font-size: 53.625px;
+      line-height: 64px;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      transition: transform 180ms ease, opacity 180ms ease;
+      white-space: nowrap;
+    }
 
-  /* ─────────────────────────────────────────
-     CELEBRACIÓN
-  ───────────────────────────────────────── */
-  .celebration-overlay {
-    position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
-    background: rgba(0,0,0,0.35); z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.3s;
-  }
-  .celebration-overlay.show { opacity: 1; pointer-events: auto; }
-  .celebration-box {
-    background: #fff; border-radius: 22px; padding: 28px 36px; text-align: center;
-    font-size: 22px; font-weight: 900; color: var(--orange);
-    transform: scale(0.8); transition: transform 0.3s;
-  }
-  .celebration-overlay.show .celebration-box { transform: scale(1); }
-  .celebration-box.sad { color: #993C1D; }
+    .main-amount.updating {
+      transform: translateY(-4px);
+      opacity: .55;
+    }
 
-  /* Reset btn */
-  .reset-btn {
-    font-size: 12px; color: var(--orange); background: none; border: none;
-    cursor: pointer; text-decoration: underline; font-family: 'Nunito', sans-serif;
-    text-align: center; padding: 0;
-  }
-  .dias-row {
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .dias-label { font-size: 12px; color: var(--text-muted); font-weight: 600; }
-  .dias-input {
-    border: none; background: transparent; outline: none;
-    font-family: 'Nunito', sans-serif; font-size: 14px; font-weight: 700;
-    color: var(--text-muted); width: 50px; text-align: right;
-  }
-</style>
+    .metric-tabs {
+      position: absolute;
+      width: 213px;
+      height: 21px;
+      left: 88px;
+      top: 169px;
+      background: var(--background);
+      border-radius: 72px;
+      display: flex;
+      align-items: center;
+      padding: 2px 0;
+      overflow: hidden;
+    }
+
+    .metric-indicator {
+      position: absolute;
+      width: 57px;
+      height: 17px;
+      left: 7px;
+      top: 2px;
+      background: var(--orange-primary);
+      border-radius: 117px;
+      transition: transform 250ms cubic-bezier(.2,.8,.2,1);
+      z-index: 1;
+    }
+
+    .metric-tabs[data-active="missing"] .metric-indicator {
+      transform: translateX(71px);
+    }
+
+    .metric-tabs[data-active="daily"] .metric-indicator {
+      transform: translateX(142px);
+    }
+
+    .metric-tab {
+      position: relative;
+      z-index: 2;
+      width: 71px;
+      height: 17px;
+      border: 0;
+      background: transparent;
+      color: var(--brown-soft);
+      font-weight: 600;
+      font-size: 10.8615px;
+      line-height: 17px;
+      cursor: pointer;
+      padding: 0 0 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: color 170ms ease;
+    }
+
+    .metric-tab[data-tab="earned"],
+    .metric-tab[data-tab="missing"],
+    .metric-tab[data-tab="daily"] {
+      width: 71px;
+    }
+
+    .metric-tabs[data-active="earned"] .metric-tab[data-tab="earned"],
+    .metric-tabs[data-active="missing"] .metric-tab[data-tab="missing"],
+    .metric-tabs[data-active="daily"] .metric-tab[data-tab="daily"] {
+      color: var(--background);
+    }
+
+    .months {
+      position: absolute;
+      width: 339px;
+      height: 20px;
+      left: 18px;
+      top: 221.47px;
+      display: flex;
+      gap: 7.62px;
+    }
+
+    .month-btn {
+      width: 41.9px;
+      height: 20px;
+      border: 1px solid transparent;
+      border-radius: 48.5646px;
+      background: transparent;
+      color: var(--background);
+      font-size: 12.3792px;
+      line-height: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0 1px;
+      cursor: pointer;
+    }
+
+    .month-btn.active {
+      background: var(--orange-primary);
+      border-color: var(--card);
+    }
+
+    .question {
+      position: absolute;
+      width: 234px;
+      height: 25px;
+      left: 70px;
+      top: 268px;
+      font-weight: 600;
+      font-size: 20.8876px;
+      line-height: 25px;
+      color: var(--card);
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .input-wrap {
+      position: absolute;
+      width: 234px;
+      height: 33px;
+      left: 70px;
+      top: 299px;
+      background: var(--card);
+      border-radius: 21px;
+      display: flex;
+      align-items: center;
+      padding-left: 12px;
+      overflow: hidden;
+    }
+
+    .input-currency {
+      font-weight: 600;
+      font-size: 20.3817px;
+      line-height: 24px;
+      color: var(--orange-primary);
+      margin-right: 1px;
+    }
+
+    .sales-input {
+      width: 190px;
+      height: 31px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--orange-primary);
+      font-weight: 600;
+      font-size: 20.3817px;
+      line-height: 24px;
+      padding: 1px 0 0;
+    }
+
+    .sales-input::placeholder {
+      color: var(--orange-primary);
+      opacity: 1;
+    }
+
+    .goal-card {
+      position: absolute;
+      width: 162px;
+      height: 115px;
+      left: 16px;
+      top: 366px;
+      background: var(--card);
+      border-radius: 21px;
+      padding: 13px 0 0 22px;
+    }
+
+
+    .goal-edit {
+      margin-top: 2px;
+      width: 118px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      color: var(--orange-primary);
+      font-weight: 500;
+      font-size: 21.5581px;
+      line-height: 26px;
+      white-space: nowrap;
+    }
+
+    .goal-edit span {
+      flex: 0 0 auto;
+    }
+
+    .goal-input {
+      width: 105px;
+      height: 28px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--orange-primary);
+      font-weight: 500;
+      font-size: 21.5581px;
+      line-height: 26px;
+      padding: 0;
+    }
+
+    .progress-card-detailed {
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+
+    .work-days-group {
+      position: absolute;
+      left: 17px;
+      top: 14px;
+      width: 70px;
+      height: 43px;
+    }
+
+    .work-days-label,
+    .remaining-days-label,
+    .progress-title {
+      color: var(--brown);
+      font-size: 10.8px;
+      font-weight: 500;
+      line-height: 13px;
+      white-space: nowrap;
+    }
+
+    .work-days-input {
+      width: 44px;
+      height: 27px;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      color: var(--orange-primary);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 28px;
+      padding: 0;
+      margin-top: 1px;
+    }
+
+    .remaining-days-group {
+      position: absolute;
+      left: 17px;
+      top: 72px;
+      width: 74px;
+      height: 34px;
+    }
+
+    .remaining-days-value {
+      color: var(--orange-primary);
+      font-size: 25px;
+      font-weight: 500;
+      line-height: 28px;
+      margin-top: 1px;
+    }
+
+    .progress-title {
+      position: absolute;
+      left: 108px;
+      top: 14px;
+      width: 48px;
+      text-align: center;
+    }
+
+    .goal-label {
+      font-weight: 300;
+      font-size: 8.29158px;
+      line-height: 10px;
+      color: var(--brown);
+    }
+
+    .goal-amount {
+      margin-top: 2px;
+      font-weight: 500;
+      font-size: 21.5581px;
+      line-height: 26px;
+      color: var(--orange-primary);
+      white-space: nowrap;
+    }
+
+    .commission-block {
+      position: absolute;
+      left: 22px;
+      top: 69px;
+      width: 79px;
+      height: 38px;
+    }
+
+    .commission-label {
+      font-weight: 300;
+      font-size: 8.29158px;
+      line-height: 10px;
+      color: var(--brown);
+      white-space: nowrap;
+    }
+
+    .commission-amount {
+      font-weight: 500;
+      font-size: 21.5581px;
+      line-height: 26px;
+      color: var(--orange-primary);
+      white-space: nowrap;
+    }
+
+    .progress-card {
+      position: absolute;
+      width: 172px;
+      height: 115px;
+      left: 193px;
+      top: 366px;
+      background: var(--card);
+      border-radius: 21px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-ring {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      left: 103px;
+      top: 38px;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--orange-primary) calc(var(--progress) * 1%), transparent 0);
+      transition: background 260ms ease;
+    }
+
+    .progress-ring::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      background: var(--card);
+      border-radius: 50%;
+    }
+
+    .progress-percent {
+      position: absolute;
+      width: 68px;
+      height: 68px;
+      left: 103px;
+      top: 38px;
+      font-weight: 600;
+      font-size: 17px;
+      line-height: 25px;
+      color: var(--orange-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .week-card {
+      position: absolute;
+      width: 339px;
+      height: 115px;
+      left: 18px;
+      top: 508px;
+      background: var(--card);
+      border-radius: 21px;
+    }
+
+    .month-title {
+      position: absolute;
+      width: 78px;
+      height: 18px;
+      left: 148px;
+      top: 518px;
+      font-weight: 500;
+      font-size: 14.9248px;
+      line-height: 18px;
+      color: var(--orange-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .week-selector {
+      position: absolute;
+      left: 52px;
+      top: 547px;
+      width: 272px;
+      height: 58px;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      align-items: stretch;
+    }
+
+    .week-selector.weekend-only {
+      left: 35px;
+      width: 305px;
+      grid-template-columns: repeat(var(--visible-days, 7), 1fr);
+      column-gap: 0;
+    }
+
+    .day-btn {
+      position: relative;
+      border: 0;
+      background: transparent;
+      color: var(--brown);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      border-radius: 53.5385px;
+    }
+
+    .day-bg {
+      position: absolute;
+      width: 29px;
+      height: 58px;
+      top: 0;
+      left: 50%;
+      margin-left: -14.5px;
+      border-radius: 53.5385px;
+      background: transparent;
+      transition: background 200ms ease;
+    }
+
+    .day-btn.active .day-bg {
+      background: var(--orange-primary);
+    }
+
+    .day-name,
+    .day-number {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      color: inherit;
+      transition: color 170ms ease;
+    }
+
+    .day-name {
+      height: 14px;
+      margin-top: 8px;
+      font-size: 11.697px;
+      line-height: 14px;
+    }
+
+    .day-number {
+      height: 14px;
+      margin-top: 15px;
+      font-size: 11.697px;
+      line-height: 14px;
+    }
+
+    .day-btn.active .day-name,
+    .day-btn.active .day-number {
+      color: var(--background);
+    }
+
+    .calendar-pointer {
+      position: absolute;
+      width: 45px;
+      height: 33px;
+      left: 165px;
+      top: 604px;
+      overflow: hidden;
+    }
+
+    .calendar-pointer::before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 10.5px;
+      top: -12px;
+      background: var(--card);
+      border-radius: 7px;
+      transform: rotate(45deg);
+    }
+
+    .calendar-panel {
+      position: absolute;
+      width: 339px;
+      height: 388px;
+      left: 18px;
+      top: 643px;
+      background: var(--card);
+      border-radius: 21px;
+    }
+
+    .calendar-heading {
+      position: absolute;
+      width: 84px;
+      height: 18px;
+      left: 26px;
+      top: 33px;
+      color: var(--orange-primary);
+      font-size: 14.9248px;
+      font-weight: 500;
+      line-height: 18px;
+      display: flex;
+      align-items: center;
+    }
+
+    .view-all {
+      position: absolute;
+      width: 45px;
+      height: 14px;
+      right: 24px;
+      top: 34px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: var(--orange-primary);
+      font-size: 8.18459px;
+      line-height: 10px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .entry-list {
+      position: absolute;
+      width: 289px;
+      left: 26px;
+      top: 76px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .entry {
+      width: 289px;
+      height: 53px;
+      border-radius: 16px;
+      background: var(--background);
+      position: relative;
+      flex: 0 0 auto;
+      display: none;
+    }
+
+    .entry.visible {
+      display: block;
+    }
+
+    .entry-day {
+      position: absolute;
+      width: 26px;
+      height: 10px;
+      left: 24px;
+      top: 9px;
+      font-weight: 500;
+      font-size: 8.32972px;
+      line-height: 10px;
+      color: var(--orange-primary);
+      text-align: center;
+    }
+
+    .entry-number {
+      position: absolute;
+      width: 35px;
+      height: 30px;
+      left: 19px;
+      top: 18.97px;
+      font-weight: 500;
+      font-size: 24.9891px;
+      line-height: 30px;
+      color: var(--brown);
+      text-align: center;
+    }
+
+    .entry-description {
+      position: absolute;
+      width: 125px;
+      height: 11px;
+      left: 82px;
+      top: 20px;
+      font-weight: 500;
+      font-size: 9.53133px;
+      line-height: 11px;
+      color: var(--brown);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .entry-charge {
+      position: absolute;
+      width: 61.6px;
+      height: 11.85px;
+      left: 113.7px;
+      top: 32px;
+      background: var(--background);
+      border-radius: 32.2215px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+    }
+
+    .entry-pill {
+      width: 30.88px;
+      height: 9.1px;
+      border-radius: 13.6993px;
+      background: var(--orange-primary);
+      color: var(--card);
+      font-size: 6.16px;
+      line-height: 7px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 1px;
+    }
+
+    .entry-commission {
+      width: 30px;
+      height: 7px;
+      color: var(--orange-primary);
+      font-size: 6.16px;
+      line-height: 7px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .entry-amount {
+      position: absolute;
+      width: 62px;
+      height: 13px;
+      left: 226px;
+      top: 21px;
+      font-weight: 500;
+      font-size: 10.9787px;
+      line-height: 13px;
+      color: var(--orange-primary);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .bottom-bar {
+      position: sticky;
+      bottom: 0;
+      width: 387px;
+      height: 38px;
+      margin-left: -12px;
+      background: var(--orange-primary);
+      z-index: 20;
+    }
+
+
+    .month-refresh {
+      position: absolute;
+      width: 375px;
+      height: 763px;
+      left: 0;
+      top: 268px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 18;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 140, 0, .62) 0%,
+        rgba(249, 229, 202, .58) 34%,
+        rgba(255, 241, 223, .28) 68%,
+        rgba(255, 241, 223, 0) 100%
+      );
+      transform: translate3d(0, -28px, 0);
+      will-change: opacity, transform;
+    }
+
+    .month-refresh.active {
+      animation: monthOpacitySweep 560ms cubic-bezier(.22,.75,.22,1) forwards;
+    }
+
+    .save-toast {
+      position: absolute;
+      width: 158px;
+      height: 30px;
+      left: 108px;
+      top: 337px;
+      border-radius: 18px;
+      background: var(--card);
+      color: var(--orange-primary);
+      font-weight: 600;
+      font-size: 11px;
+      line-height: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px) scale(.96);
+      pointer-events: none;
+      box-shadow: 0 10px 20px rgba(164, 130, 85, .12);
+      z-index: 12;
+    }
+
+    .save-toast.show {
+      animation: savedPop 1050ms cubic-bezier(.2,.8,.2,1) forwards;
+    }
+
+    .save-check {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: var(--orange-primary);
+      color: var(--card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      margin-right: 6px;
+    }
+
+    @keyframes savedPop {
+      0% {
+        opacity: 0;
+        transform: translateY(10px) scale(.96);
+      }
+      18% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      78% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-7px) scale(.98);
+      }
+    }
+
+    .screen.refreshing .question,
+    .screen.refreshing .input-wrap,
+    .screen.refreshing .goal-card,
+    .screen.refreshing .progress-card,
+    .screen.refreshing .week-card,
+    .screen.refreshing .month-title,
+    .screen.refreshing .week-selector,
+    .screen.refreshing .calendar-pointer,
+    .screen.refreshing .calendar-panel {
+      animation: softRefresh 560ms cubic-bezier(.22,.75,.22,1) both;
+      will-change: opacity, transform;
+    }
+
+    .screen.refreshing .question,
+    .screen.refreshing .input-wrap {
+      animation-delay: 0ms;
+    }
+
+    .screen.refreshing .goal-card,
+    .screen.refreshing .progress-card {
+      animation-delay: 35ms;
+    }
+
+    .screen.refreshing .week-card,
+    .screen.refreshing .month-title,
+    .screen.refreshing .week-selector,
+    .screen.refreshing .calendar-pointer {
+      animation-delay: 70ms;
+    }
+
+    .screen.refreshing .calendar-panel {
+      animation-delay: 105ms;
+    }
+
+    @keyframes softRefresh {
+      0% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+      42% {
+        opacity: .16;
+        transform: translate3d(0, 7px, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes monthOpacitySweep {
+      0% {
+        opacity: 0;
+        transform: translate3d(0, -28px, 0);
+      }
+      28% {
+        opacity: .86;
+      }
+      72% {
+        opacity: .46;
+      }
+      100% {
+        opacity: 0;
+        transform: translate3d(0, 34px, 0);
+      }
+    }
+
+    @media (max-width: 374px) {
+      .phone {
+        transform-origin: top center;
+        transform: scale(calc(100vw / 375));
+        height: calc(812px * (100vw / 375));
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="phone" aria-label="Aplicación móvil Home">
+    <section class="screen">
+      <div class="gradient"></div>
 
-<!-- ── HEADER ────────────────────────────────── -->
-<div class="header">
-  <div class="header-top">
-    <div class="avatar" id="avatar-text">00</div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;">
-      <span class="header-date" id="header-date-label"></span>
-      <div class="mode-switch">
-        <button class="mode-btn active" id="btn-pt" onclick="setMode('pt')">Part time</button>
-        <button class="mode-btn" id="btn-ft" onclick="setMode('ft')">Full Time</button>
+      <button class="profile-badge" type="button" aria-label="Perfil">00</button>
+
+      <button class="work-switch" id="workSwitch" type="button" aria-label="Cambiar tipo de jornada">
+        <span class="part">Part time</span>
+        <span class="full">Full Time</span>
+      </button>
+
+      <div class="date-label" id="dateLabel">jueves, 10 Jun</div>
+
+      <div class="metric-caption" id="metricCaption">Llevas</div>
+      <div class="main-amount" id="mainAmount">$0</div>
+
+      <div class="metric-tabs" id="metricTabs" data-active="earned" role="tablist" aria-label="Métricas">
+        <div class="metric-indicator"></div>
+        <button class="metric-tab" type="button" data-tab="earned">Llevas</button>
+        <button class="metric-tab" type="button" data-tab="missing">Falta</button>
+        <button class="metric-tab" type="button" data-tab="daily">Diario</button>
       </div>
-    </div>
-  </div>
-  <span class="header-label" id="header-label">Llevas</span>
-  <div class="header-amount" id="header-amount">$0</div>
-  <div class="stat-tabs-wrap">
-    <button class="stat-tab active" data-tab="llevas">Llevas</button>
-    <button class="stat-tab" data-tab="falta">Falta</button>
-    <button class="stat-tab" data-tab="diario">Diario</button>
-  </div>
-</div>
 
-<!-- ── CONTENIDO ─────────────────────────────── -->
-<div class="main">
-  <div class="mode-section active" id="section-pt">
-    <div class="month-tabs" id="tabs-pt"></div>
-    <div id="panels-pt"></div>
-  </div>
-  <div class="mode-section" id="section-ft">
-    <div class="month-tabs" id="tabs-ft"></div>
-    <div id="panels-ft"></div>
-  </div>
-</div>
+      <nav class="months" aria-label="Meses">
+        <button class="month-btn active" type="button" data-month="Jun">Jun</button>
+        <button class="month-btn" type="button" data-month="Jul">Jul</button>
+        <button class="month-btn" type="button" data-month="Ago">Ago</button>
+        <button class="month-btn" type="button" data-month="Sep">Sep</button>
+        <button class="month-btn" type="button" data-month="Oct">Oct</button>
+        <button class="month-btn" type="button" data-month="Nov">Nov</button>
+        <button class="month-btn" type="button" data-month="Dic">Dic</button>
+      </nav>
 
-<!-- ── BARRA INFERIOR ─────────────────────────── -->
-<div class="bottom-nav">
-  <button class="nav-btn active" id="navbtn-home" onclick="setView('home')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1Z"/></svg>
-    Home
-  </button>
-  <button class="nav-btn" id="navbtn-progress" onclick="setView('progress')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg>
-    Progress
-  </button>
-  <button class="nav-btn" id="navbtn-rewards" onclick="setView('rewards')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="m8.5 7.5-2 9 5.5-2.5 5.5 2.5-2-9"/></svg>
-    Rewards
-  </button>
-  <button class="nav-btn" id="navbtn-menu" onclick="setView('menu')">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    Menu
-  </button>
-</div>
+      <label class="question" for="salesInput">¿Cuánto vendiste hoy?</label>
+      <div class="input-wrap">
+        <span class="input-currency">$</span>
+        <input
+          id="salesInput"
+          class="sales-input"
+          type="text"
+          inputmode="numeric"
+          autocomplete="off"
+          value=""
+          placeholder="0"
+          aria-label="Monto vendido hoy"
+        />
+      </div>
+      <div class="save-toast" id="saveToast" aria-hidden="true">
+        <span class="save-check">✓</span>
+        Monto guardado
+      </div>
 
-<!-- ── MODAL EDICIÓN DÍA ──────────────────────── -->
-<div class="day-edit-overlay" id="day-edit-overlay">
-  <div class="day-edit-box">
-    <p class="day-edit-title" id="day-edit-title"></p>
-    <input type="text" inputmode="numeric" class="day-edit-input" id="day-edit-input" placeholder="$0">
-    <div class="day-edit-actions">
-      <button class="day-edit-cancel" id="day-edit-cancel">Cancelar</button>
-      <button class="day-edit-save" id="day-edit-save">Guardar</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── CELEBRACIÓN ────────────────────────────── -->
-<div class="celebration-overlay" id="celebration-overlay">
-  <div class="celebration-box" id="celebration-box"></div>
-</div>
-
-<!-- ── WELCOME ───────────────────────────────── -->
-<div class="welcome-overlay" id="welcome-overlay" style="display:none;">
-  <div class="welcome-box">
-    <h2>¡Bienvenido/a! 👋</h2>
-    <p>¿Cómo te llamas?</p>
-    <input type="text" class="welcome-input" id="welcome-input" placeholder="Tu nombre" maxlength="30">
-    <button class="welcome-btn" id="welcome-btn">Continuar</button>
-  </div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-<script>
-// ── DATOS ──────────────────────────────────────────────────────────────
-const MONTHS_PT = [
-  { key:'pt_jun', label:'Jun', labelFull:'Junio 2026', meta:4000000, dates:[['30-05','Sáb'],['31-05','Dom'],['06-06','Sáb'],['07-06','Dom'],['13-06','Sáb'],['14-06','Dom'],['20-06','Sáb'],['21-06','Dom'],['27-06','Sáb'],['28-06','Dom']] },
-  { key:'pt_jul', label:'Jul', labelFull:'Julio 2026', meta:4000000, dates:[['04-07','Sáb'],['05-07','Dom'],['11-07','Sáb'],['12-07','Dom'],['18-07','Sáb'],['19-07','Dom'],['25-07','Sáb'],['26-07','Dom']] },
-  { key:'pt_ago', label:'Ago', labelFull:'Agosto 2026', meta:4000000, dates:[['01-08','Sáb'],['02-08','Dom'],['08-08','Sáb'],['09-08','Dom'],['15-08','Sáb'],['16-08','Dom'],['22-08','Sáb'],['23-08','Dom']] },
-  { key:'pt_sep', label:'Sep', labelFull:'Septiembre 2026', meta:4000000, dates:[['29-08','Sáb'],['30-08','Dom'],['05-09','Sáb'],['06-09','Dom'],['12-09','Sáb'],['13-09','Dom'],['19-09','Sáb'],['20-09','Dom'],['26-09','Sáb'],['27-09','Dom']] },
-  { key:'pt_oct', label:'Oct', labelFull:'Octubre 2026', meta:4000000, dates:[['03-10','Sáb'],['04-10','Dom'],['10-10','Sáb'],['11-10','Dom'],['17-10','Sáb'],['18-10','Dom'],['24-10','Sáb'],['25-10','Dom']] },
-  { key:'pt_nov', label:'Nov', labelFull:'Noviembre 2026', meta:4000000, dates:[['31-10','Sáb'],['01-11','Dom'],['07-11','Sáb'],['08-11','Dom'],['14-11','Sáb'],['15-11','Dom'],['21-11','Sáb'],['22-11','Dom'],['28-11','Sáb']] },
-  { key:'pt_dic', label:'Dic', labelFull:'Diciembre 2026', meta:4000000, dates:[['29-11','Dom'],['05-12','Sáb'],['06-12','Dom'],['12-12','Sáb'],['13-12','Dom'],['19-12','Sáb'],['20-12','Dom'],['26-12','Sáb'],['27-12','Dom']] },
-];
-const MONTHS_FT = [
-  { key:'jun_ft', label:'Jun', labelFull:'Junio 2026', meta:4000000, dates:[['29-05','Vie'],['30-05','Sáb'],['31-05','Dom'],['01-06','Lun'],['02-06','Mar'],['03-06','Mié'],['04-06','Jue'],['05-06','Vie'],['06-06','Sáb'],['07-06','Dom'],['08-06','Lun'],['09-06','Mar'],['10-06','Mié'],['11-06','Jue'],['12-06','Vie'],['13-06','Sáb'],['14-06','Dom'],['15-06','Lun'],['16-06','Mar'],['17-06','Mié'],['18-06','Jue'],['19-06','Vie'],['20-06','Sáb'],['21-06','Dom'],['22-06','Lun'],['23-06','Mar'],['24-06','Mié'],['25-06','Jue'],['26-06','Vie'],['27-06','Sáb'],['28-06','Dom']] },
-  { key:'jul_ft', label:'Jul', labelFull:'Julio 2026', meta:4000000, dates:[['29-06','Lun'],['30-06','Mar'],['01-07','Mié'],['02-07','Jue'],['03-07','Vie'],['04-07','Sáb'],['05-07','Dom'],['06-07','Lun'],['07-07','Mar'],['08-07','Mié'],['09-07','Jue'],['10-07','Vie'],['11-07','Sáb'],['12-07','Dom'],['13-07','Lun'],['14-07','Mar'],['15-07','Mié'],['16-07','Jue'],['17-07','Vie'],['18-07','Sáb'],['19-07','Dom'],['20-07','Lun'],['21-07','Mar'],['22-07','Mié'],['23-07','Jue'],['24-07','Vie'],['25-07','Sáb'],['26-07','Dom'],['27-07','Lun'],['28-07','Mar']] },
-  { key:'ago_ft', label:'Ago', labelFull:'Agosto 2026', meta:4000000, dates:[['29-07','Mié'],['30-07','Jue'],['31-07','Vie'],['01-08','Sáb'],['02-08','Dom'],['03-08','Lun'],['04-08','Mar'],['05-08','Mié'],['06-08','Jue'],['07-08','Vie'],['08-08','Sáb'],['09-08','Dom'],['10-08','Lun'],['11-08','Mar'],['12-08','Mié'],['13-08','Jue'],['14-08','Vie'],['15-08','Sáb'],['16-08','Dom'],['17-08','Lun'],['18-08','Mar'],['19-08','Mié'],['20-08','Jue'],['21-08','Vie'],['22-08','Sáb'],['23-08','Dom'],['24-08','Lun'],['25-08','Mar'],['26-08','Mié'],['27-08','Jue'],['28-08','Vie']] },
-  { key:'sep_ft', label:'Sep', labelFull:'Septiembre 2026', meta:4000000, dates:[['29-08','Sáb'],['30-08','Dom'],['31-08','Lun'],['01-09','Mar'],['02-09','Mié'],['03-09','Jue'],['04-09','Vie'],['05-09','Sáb'],['06-09','Dom'],['07-09','Lun'],['08-09','Mar'],['09-09','Mié'],['10-09','Jue'],['11-09','Vie'],['12-09','Sáb'],['13-09','Dom'],['14-09','Lun'],['15-09','Mar'],['16-09','Mié'],['17-09','Jue'],['18-09','Vie'],['19-09','Sáb'],['20-09','Dom'],['21-09','Lun'],['22-09','Mar'],['23-09','Mié'],['24-09','Jue'],['25-09','Vie'],['26-09','Sáb'],['27-09','Dom'],['28-09','Lun']] },
-  { key:'oct_ft', label:'Oct', labelFull:'Octubre 2026', meta:4000000, dates:[['29-09','Mar'],['30-09','Mié'],['01-10','Jue'],['02-10','Vie'],['03-10','Sáb'],['04-10','Dom'],['05-10','Lun'],['06-10','Mar'],['07-10','Mié'],['08-10','Jue'],['09-10','Vie'],['10-10','Sáb'],['11-10','Dom'],['12-10','Lun'],['13-10','Mar'],['14-10','Mié'],['15-10','Jue'],['16-10','Vie'],['17-10','Sáb'],['18-10','Dom'],['19-10','Lun'],['20-10','Mar'],['21-10','Mié'],['22-10','Jue'],['23-10','Vie'],['24-10','Sáb'],['25-10','Dom'],['26-10','Lun'],['27-10','Mar'],['28-10','Mié']] },
-  { key:'nov_ft', label:'Nov', labelFull:'Noviembre 2026', meta:4000000, dates:[['29-10','Jue'],['30-10','Vie'],['31-10','Sáb'],['01-11','Dom'],['02-11','Lun'],['03-11','Mar'],['04-11','Mié'],['05-11','Jue'],['06-11','Vie'],['07-11','Sáb'],['08-11','Dom'],['09-11','Lun'],['10-11','Mar'],['11-11','Mié'],['12-11','Jue'],['13-11','Vie'],['14-11','Sáb'],['15-11','Dom'],['16-11','Lun'],['17-11','Mar'],['18-11','Mié'],['19-11','Jue'],['20-11','Vie'],['21-11','Sáb'],['22-11','Dom'],['23-11','Lun'],['24-11','Mar'],['25-11','Mié'],['26-11','Jue'],['27-11','Vie'],['28-11','Sáb']] },
-  { key:'dic_ft', label:'Dic', labelFull:'Diciembre 2026', meta:4000000, dates:[['29-11','Dom'],['30-11','Lun'],['01-12','Mar'],['02-12','Mié'],['03-12','Jue'],['04-12','Vie'],['05-12','Sáb'],['06-12','Dom'],['07-12','Lun'],['08-12','Mar'],['09-12','Mié'],['10-12','Jue'],['11-12','Vie'],['12-12','Sáb'],['13-12','Dom'],['14-12','Lun'],['15-12','Mar'],['16-12','Mié'],['17-12','Jue'],['18-12','Vie'],['19-12','Sáb'],['20-12','Dom'],['21-12','Lun'],['22-12','Mar'],['23-12','Mié'],['24-12','Jue'],['25-12','Vie'],['26-12','Sáb'],['27-12','Dom'],['28-12','Lun']] },
-];
-
-// ── UTILES ─────────────────────────────────────────────────────────────
-const fmt = n => '$' + Math.round(n).toLocaleString('es-CL');
-const parseCur = str => { const d = String(str).replace(/[^0-9]/g,''); return d ? parseInt(d,10) : 0; };
-const sk = k => 'mv2026_' + k;
-function loadData(m) {
-  let s={}; try{ s=JSON.parse(localStorage.getItem(sk(m.key)))||{}; }catch(e){}
-  return { ventas: s.ventas||new Array(m.dates.length).fill(0), dias: s.dias||m.dates.length, meta: s.meta||m.meta };
-}
-function saveData(m, state) { localStorage.setItem(sk(m.key), JSON.stringify(state)); }
-
-// ── ESTADO GLOBAL ──────────────────────────────────────────────────────
-let currentMode = localStorage.getItem('modo_2026') || 'pt';
-let currentView = 'home';
-let currentTab = 'llevas';
-let activeKey = null;
-const calState = {};
-const charts = {};
-const globalStats = {};
-
-// ── FECHA EN HEADER ─────────────────────────────────────────────────────
-function setHeaderDate() {
-  const now = new Date();
-  const dias = ['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-  const meses = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-  document.getElementById('header-date-label').textContent =
-    dias[now.getDay()].charAt(0).toUpperCase() + dias[now.getDay()].slice(1) + ', ' +
-    now.getDate() + ' ' + meses[now.getMonth()];
-}
-setHeaderDate();
-
-// ── BIENVENIDA ─────────────────────────────────────────────────────────
-function initWelcome() {
-  const name = localStorage.getItem('user_name_2026');
-  if (!name) {
-    document.getElementById('welcome-overlay').style.display = 'flex';
-    const inp = document.getElementById('welcome-input');
-    const btn = document.getElementById('welcome-btn');
-    const save = () => {
-      const v = inp.value.trim(); if (!v) { inp.focus(); return; }
-      localStorage.setItem('user_name_2026', v);
-      document.getElementById('welcome-overlay').style.display = 'none';
-      updateAvatar();
-    };
-    btn.onclick = save; inp.onkeydown = e => { if(e.key==='Enter') save(); };
-  }
-  updateAvatar();
-}
-function updateAvatar() {
-  const name = localStorage.getItem('user_name_2026') || '';
-  document.getElementById('avatar-text').textContent = name ? name.substring(0,2).toUpperCase() : '00';
-}
-
-// ── MODO ───────────────────────────────────────────────────────────────
-function setMode(mode) {
-  currentMode = mode;
-  localStorage.setItem('modo_2026', mode);
-  document.getElementById('section-pt').classList.toggle('active', mode==='pt');
-  document.getElementById('section-ft').classList.toggle('active', mode==='ft');
-  document.getElementById('btn-pt').classList.toggle('active', mode==='pt');
-  document.getElementById('btn-ft').classList.toggle('active', mode==='ft');
-  updateHeader();
-}
-
-// ── VISTA ──────────────────────────────────────────────────────────────
-function setView(view) {
-  currentView = view;
-  ['home','progress','rewards','menu'].forEach(v => {
-    document.getElementById('navbtn-'+v).classList.toggle('active', v===view);
-  });
-  document.querySelectorAll('.view-page').forEach(el => {
-    el.classList.toggle('active', el.dataset.view===view);
-  });
-}
-
-// ── STAT TAB ──────────────────────────────────────────────────────────
-document.querySelectorAll('.stat-tab').forEach(btn => {
-  btn.onclick = () => {
-    document.querySelectorAll('.stat-tab').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentTab = btn.dataset.tab;
-    updateHeader();
-  };
-});
-
-function updateHeader() {
-  if (!activeKey || !globalStats[activeKey]) return;
-  const { total, falta, necesarioPorDia } = globalStats[activeKey];
-  const labels = { llevas:'Llevas', falta:'Falta', diario:'Necesitas/día' };
-  document.getElementById('header-label').textContent = labels[currentTab]||'Llevas';
-  let val = total;
-  if (currentTab==='falta') val = falta;
-  if (currentTab==='diario') val = necesarioPorDia;
-  document.getElementById('header-amount').textContent = fmt(val);
-}
-
-// ── CELEBRACIÓN ────────────────────────────────────────────────────────
-function showCelebration(text, success) {
-  const ov = document.getElementById('celebration-overlay');
-  const box = document.getElementById('celebration-box');
-  box.textContent = text;
-  box.className = 'celebration-box' + (success?'':' sad');
-  ov.classList.add('show');
-  setTimeout(() => ov.classList.remove('show'), 2500);
-}
-
-// ── CONSTRUCCIÓN DE PANEL ──────────────────────────────────────────────
-function buildPanel(m, tabsEl, panelsEl, isFT) {
-  const btn = document.createElement('button');
-  btn.className = 'month-tab';
-  btn.textContent = m.label;
-  btn.dataset.key = m.key;
-  btn.onclick = () => switchTab(m.key, tabsEl, panelsEl);
-  tabsEl.appendChild(btn);
-
-  const panel = document.createElement('div');
-  panel.className = 'month-panel';
-  panel.id = 'panel-' + m.key;
-
-  const now = new Date();
-  const todayDM = String(now.getDate()).padStart(2,'0') + '-' + String(now.getMonth()+1).padStart(2,'0');
-  const todayIdx = m.dates.findIndex(d => d[0]===todayDM);
-
-  const todayHtml = todayIdx !== -1
-    ? `<div class="question-input-wrap">
-         <input type="text" inputmode="numeric" class="question-input" id="today-inp-${m.key}" placeholder="$0">
-         <button class="question-btn" id="today-btn-${m.key}">Guardar</button>
-       </div>`
-    : `<p class="today-no-match">Hoy no es un día de trabajo en este período.</p>`;
-
-  panel.innerHTML = `
-    <div class="view-page active" data-view="home">
-      <p class="question-label">¿Cuánto vendiste hoy?</p>
-      ${todayHtml}
-      <div class="meta-progress-row">
-        <div class="meta-card">
-          <div class="meta-card-top">
-            <span class="meta-card-label">Meta del mes</span>
-            <input type="number" class="meta-input" id="meta-${m.key}" value="${m.meta}" min="0">
-          </div>
-          <div class="meta-card-bottom">
-            <span class="comision-label">Comisión estimada</span>
-            <span class="comision-value" id="comision-${m.key}">$0</span>
-          </div>
+      <section class="goal-card" aria-label="Resumen mensual">
+        <label class="goal-label" for="goalInput">Meta del mes</label>
+        <div class="goal-edit">
+          <span>$</span>
+          <input id="goalInput" class="goal-input" type="text" inputmode="numeric" value="4.000.000" aria-label="Meta del mes editable" />
         </div>
-        <div class="progress-card">
-          <div class="progress-text">Pro\ngre\nso</div>
-          <div class="donut-wrap">
-            <svg class="donut-svg" viewBox="0 0 36 36">
-              <circle class="donut-bg" cx="18" cy="18" r="15.9"/>
-              <circle class="donut-fill" id="donut-${m.key}" cx="18" cy="18" r="15.9"/>
-            </svg>
-            <div class="donut-pct" id="pct-${m.key}">0%</div>
-          </div>
+
+        <div class="commission-block">
+          <div class="commission-label">Comisión estimada</div>
+          <div class="commission-amount" id="commissionAmount">$0</div>
         </div>
-      </div>
-      <div class="calendar-card">
-        <div class="calendar-nav-row">
-          <button class="cal-nav-btn" id="cal-prev-${m.key}">‹</button>
-          <span class="calendar-title" id="cal-title-${m.key}">${m.labelFull}</span>
-          <button class="cal-nav-btn" id="cal-next-${m.key}">›</button>
+      </section>
+
+      <section class="progress-card progress-card-detailed" aria-label="Progreso de la meta">
+        <div class="work-days-group">
+          <label class="work-days-label" for="workDaysInput">Días a trabajar</label>
+          <input id="workDaysInput" class="work-days-input" type="text" inputmode="numeric" value="0" aria-label="Días a trabajar editables" />
         </div>
-        <div class="calendar-week" id="cal-week-${m.key}"></div>
+
+        <div class="remaining-days-group">
+          <div class="remaining-days-label">Días restantes</div>
+          <div class="remaining-days-value" id="remainingDaysValue">0</div>
+        </div>
+
+        <div class="progress-title">Progreso</div>
+        <div class="progress-ring" id="progressRing" style="--progress: 0"></div>
+        <div class="progress-percent" id="progressPercent">0%</div>
+      </section>
+
+      <section class="week-card" aria-label="Calendario semanal"></section>
+      <div class="month-refresh" id="monthRefresh" aria-hidden="true"></div>
+      <div class="month-title" id="monthTitle">Junio 2026</div>
+
+      <div class="week-selector" id="weekSelector" aria-label="Días de la semana">
+        <button class="day-btn" type="button" data-index="0">
+          <span class="day-bg"></span><span class="day-name">Lun</span><span class="day-number">07</span>
+        </button>
+        <button class="day-btn" type="button" data-index="1">
+          <span class="day-bg"></span><span class="day-name">Mar</span><span class="day-number">08</span>
+        </button>
+        <button class="day-btn" type="button" data-index="2">
+          <span class="day-bg"></span><span class="day-name">Mir</span><span class="day-number">09</span>
+        </button>
+        <button class="day-btn active" type="button" data-index="3">
+          <span class="day-bg"></span><span class="day-name">Jue</span><span class="day-number">10</span>
+        </button>
+        <button class="day-btn" type="button" data-index="4">
+          <span class="day-bg"></span><span class="day-name">Vie</span><span class="day-number">11</span>
+        </button>
+        <button class="day-btn" type="button" data-index="5">
+          <span class="day-bg"></span><span class="day-name">Sab</span><span class="day-number">12</span>
+        </button>
+        <button class="day-btn" type="button" data-index="6">
+          <span class="day-bg"></span><span class="day-name">Dom</span><span class="day-number">13</span>
+        </button>
       </div>
-      <div class="dias-row">
-        <span class="dias-label">Días trabajados: <input type="number" class="dias-input" id="dias-${m.key}" value="${m.dates.length}" min="1"></span>
-        <button class="reset-btn" data-key="${m.key}">Reiniciar</button>
-      </div>
-    </div>
-    <div class="view-page" data-view="progress">
-      <div class="chart-wrap">
-        <p class="chart-label">Progreso hacia la meta</p>
-        <div class="progress-bar-big"><div class="progress-bar-fill" id="pgbar-${m.key}"><span id="pgpct-${m.key}">0%</span></div></div>
-      </div>
-      <div class="chart-wrap">
-        <p class="chart-label">Ventas por día vs meta diaria</p>
-        <div style="position:relative;width:100%;height:220px;"><canvas id="chart-${m.key}"></canvas></div>
-      </div>
-      <div class="progress-stats">
-        <div class="stat-row"><span class="stat-row-label">Vendido</span><span class="stat-row-value" id="vendido-${m.key}">$0</span></div>
-        <div class="stat-row"><span class="stat-row-label">Falta</span><span class="stat-row-value" id="falta2-${m.key}">$0</span></div>
-        <div class="stat-row"><span class="stat-row-label">Necesitas/día</span><span class="stat-row-value" id="nd2-${m.key}">$0</span></div>
-      </div>
-    </div>
-    <div class="view-page" data-view="rewards"><div class="placeholder-card">🏆 Próximamente</div></div>
-    <div class="view-page" data-view="menu"><div class="placeholder-card">⚙️ Próximamente</div></div>
-  `;
-  panelsEl.appendChild(panel);
-}
 
-function switchTab(key, tabsEl, panelsEl) {
-  tabsEl.querySelectorAll('.month-tab').forEach(b => b.classList.toggle('active', b.dataset.key===key));
-  panelsEl.querySelectorAll('.month-panel').forEach(p => p.classList.toggle('active', p.id==='panel-'+key));
-  activeKey = key;
-  updateHeader();
-}
+      <div class="calendar-pointer"></div>
 
-// ── CALENDARIO ─────────────────────────────────────────────────────────
-function renderCal(m, ventas, metaDiaria) {
-  const wIdx = calState[m.key]||0;
-  const totalW = Math.ceil(m.dates.length/7);
-  const startIdx = wIdx*7;
-  const weekDates = m.dates.slice(startIdx, startIdx+7);
-  const now = new Date();
-  const todayDM = String(now.getDate()).padStart(2,'0')+'-'+String(now.getMonth()+1).padStart(2,'0');
+      <section class="calendar-panel" aria-label="Calendario">
+        <h2 class="calendar-heading">Calendario</h2>
+        <button class="view-all" id="viewAllButton" type="button">Ver todo</button>
+        <div class="entry-list" id="entryList"></div>
+      </section>
 
-  const el = document.getElementById('cal-week-'+m.key);
-  el.innerHTML = '';
+      <div class="bottom-bar" aria-hidden="true"></div>
+    </section>
+  </main>
 
-  weekDates.forEach((d, i) => {
-    const idx = startIdx + i;
-    const v = ventas[idx]||0;
-    const isToday = d[0]===todayDM;
+  <script>
+    let monthlyGoal = 4000000;
+    const COMMISSION_RATE = 0.005;
+    const CLOSING_DAY = 24;
 
-    const wrap = document.createElement('div');
-    wrap.className = 'cal-day-wrap';
+    const monthNamesLong = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
 
-    const lbl = document.createElement('div');
-    lbl.className = 'cal-lbl';
-    lbl.textContent = d[1].substring(0,3);
-    wrap.appendChild(lbl);
+    const monthNamesShort = [
+      'Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+      'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'
+    ];
 
-    const day = document.createElement('button');
-    day.className = 'cal-day';
-    if (isToday) day.classList.add('today');
-    else if (v>0 && v>=metaDiaria) day.classList.add('success');
-    else if (v>0) day.classList.add('has-sale');
-    day.textContent = d[0].split('-')[0];
-    day.onclick = () => openDayEdit(m, idx, d);
-    wrap.appendChild(day);
-    el.appendChild(wrap);
-  });
+    const weekdayNamesShort = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
+    const weekdayNamesLong = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 
-  for(let i=weekDates.length; i<7; i++) el.appendChild(document.createElement('div'));
+    const realToday = new Date();
+    let selectedMonthDate = new Date(realToday.getFullYear(), realToday.getMonth(), 1);
+    let activeMetric = 'earned';
+    let activeDayIndex = 0;
+    let showAllEntries = false;
+    let days = createPartTimeMonthDays(selectedMonthDate);
 
-  document.getElementById('cal-prev-'+m.key).disabled = wIdx<=0;
-  document.getElementById('cal-next-'+m.key).disabled = wIdx>=totalW-1;
-}
+    function cloneDate(date) {
+      return new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    }
 
-// ── EDICIÓN DÍA ────────────────────────────────────────────────────────
-let dayCtx = null;
-function openDayEdit(m, idx, d) {
-  dayCtx = { m, idx };
-  const map={'Lun':'lunes','Mar':'martes','Mié':'miércoles','Jue':'jueves','Vie':'viernes','Sáb':'sábado','Dom':'domingo'};
-  document.getElementById('day-edit-title').textContent = `${map[d[1]]||d[1]} ${d[0]}`;
-  const cur = (window['vc_'+m.key]||[])[idx]||0;
-  const inp = document.getElementById('day-edit-input');
-  inp.value = cur>0 ? cur.toLocaleString('es-CL') : '';
-  document.getElementById('day-edit-overlay').classList.add('show');
-  setTimeout(()=>inp.focus(),100);
-}
-document.getElementById('day-edit-cancel').onclick = () => document.getElementById('day-edit-overlay').classList.remove('show');
-document.getElementById('day-edit-save').onclick = () => {
-  if (!dayCtx) return;
-  const {m, idx} = dayCtx;
-  window['setV_'+m.key](idx, parseCur(document.getElementById('day-edit-input').value));
-  document.getElementById('day-edit-overlay').classList.remove('show');
-};
+    function getMonday(date) {
+      const day = date.getDay();
+      const diff = day === 0 ? -6 : 1 - day;
+      const monday = cloneDate(date);
+      monday.setDate(date.getDate() + diff);
+      return monday;
+    }
 
-// ── SETUP MES ──────────────────────────────────────────────────────────
-function setupMonth(m, isFT) {
-  const state = loadData(m);
-  let ventas = state.ventas.slice();
-  let dias = state.dias;
-  let meta = state.meta;
-  calState[m.key] = 0;
-  window['vc_'+m.key] = ventas;
+    function getReferenceDateForMonth(monthDate) {
+      const isCurrentMonth =
+        monthDate.getFullYear() === realToday.getFullYear() &&
+        monthDate.getMonth() === realToday.getMonth();
 
-  document.getElementById('meta-'+m.key).value = meta;
-  document.getElementById('dias-'+m.key).value = dias;
+      const referenceDay = isCurrentMonth
+        ? realToday.getDate()
+        : Math.min(realToday.getDate(), new Date(monthDate.getFullYear(), monthDate.getMonth() + 1, 0).getDate());
 
-  const now = new Date();
-  const todayDM = String(now.getDate()).padStart(2,'0')+'-'+String(now.getMonth()+1).padStart(2,'0');
-  const todayIdx = m.dates.findIndex(d => d[0]===todayDM);
-  if (todayIdx!==-1) calState[m.key] = Math.floor(todayIdx/7);
+      return new Date(monthDate.getFullYear(), monthDate.getMonth(), referenceDay);
+    }
 
-  let monthCelebrated = ventas.filter(v=>v>0).length===(isFT?dias:ventas.length) && ventas.length>0;
+    function createMonthWeek(monthDate) {
+      const reference = getReferenceDateForMonth(monthDate);
+      const monday = getMonday(reference);
 
-  function update(triggeredIdx) {
-    meta = parseFloat(document.getElementById('meta-'+m.key).value)||1;
-    dias = parseFloat(document.getElementById('dias-'+m.key).value)||1;
-    const metaDiaria = meta/dias;
-    const total = ventas.reduce((a,b)=>a+b,0);
-    const pct = Math.min(total/meta,1);
-    const trabajados = ventas.filter(v=>v>0).length;
-    const diasRest = Math.max(dias-trabajados,0);
-    const falta = Math.max(meta-total,0);
-    const ndp = diasRest>0 ? falta/diasRest : (falta>0?falta:0);
+      return Array.from({ length: 7 }, (_, index) => {
+        const date = cloneDate(monday);
+        date.setDate(monday.getDate() + index);
 
-    // Donut — circunferencia r=15.9 → 2πr ≈ 99.9
-    const circ = 99.9;
-    const dEl = document.getElementById('donut-'+m.key);
-    if (dEl) { dEl.style.strokeDasharray=circ; dEl.style.strokeDashoffset=circ*(1-pct); }
-    const pEl = document.getElementById('pct-'+m.key);
-    if (pEl) pEl.textContent = (pct*100).toFixed(0)+'%';
+        const dayName = weekdayNamesShort[date.getDay()];
+        const dayNumber = String(date.getDate()).padStart(2, '0');
+        const monthShort = monthNamesShort[date.getMonth()];
+        const fullDay = `${weekdayNamesLong[date.getDay()]}, ${dayNumber} ${monthShort}`;
 
-    // Comisión = 0
-    const cEl = document.getElementById('comision-'+m.key);
-    if (cEl) cEl.textContent = '$0';
+        return {
+          date,
+          name: dayName,
+          number: dayNumber,
+          full: fullDay,
+          amount: 0
+        };
+      });
+    }
 
-    // Progress view
-    const vEl = document.getElementById('vendido-'+m.key);
-    if (vEl) vEl.textContent = fmt(total);
-    const f2El = document.getElementById('falta2-'+m.key);
-    if (f2El) f2El.textContent = fmt(falta);
-    const ndEl = document.getElementById('nd2-'+m.key);
-    if (ndEl) ndEl.textContent = fmt(ndp);
-    const pgEl = document.getElementById('pgbar-'+m.key);
-    if (pgEl) pgEl.style.width = (pct*100)+'%';
-    const pgPct = document.getElementById('pgpct-'+m.key);
-    if (pgPct) pgPct.textContent = (pct*100).toFixed(0)+'%';
+    function createPartTimeMonthDays(monthDate) {
+      const year = monthDate.getFullYear();
+      const month = monthDate.getMonth();
+      const partTimeDays = [];
 
-    globalStats[m.key] = { total, falta, necesarioPorDia:ndp };
-    if (m.key===activeKey) updateHeader();
+      for (let day = 1; day <= CLOSING_DAY; day++) {
+        const date = new Date(year, month, day);
+        if (date.getMonth() !== month) continue;
 
-    renderCal(m, ventas, metaDiaria);
+        const weekday = date.getDay();
+        if (weekday !== 0 && weekday !== 6) continue;
 
-    const metaArr = new Array(m.dates.length).fill(metaDiaria);
-    if (charts[m.key]) {
-      charts[m.key].data.datasets[0].data = ventas;
-      charts[m.key].data.datasets[1].data = metaArr;
-      charts[m.key].update();
-    } else {
-      const c = document.getElementById('chart-'+m.key);
-      if (c) {
-        charts[m.key] = new Chart(c, {
-          type:'bar',
-          data:{ labels:m.dates.map(d=>d[0]), datasets:[
-            {label:'Venta',data:ventas,backgroundColor:'#FF8C00'},
-            {label:'Meta diaria',data:metaArr,backgroundColor:'#F9E5CA'}
-          ]},
-          options:{
-            responsive:true,maintainAspectRatio:false,
-            plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,font:{size:10}}}},
-            scales:{y:{ticks:{callback:v=>'$'+(v/1000)+'k'}}}
-          }
+        const dayName = weekdayNamesShort[weekday];
+        const dayNumber = String(date.getDate()).padStart(2, '0');
+        const monthShort = monthNamesShort[date.getMonth()];
+
+        partTimeDays.push({
+          date,
+          name: dayName,
+          number: dayNumber,
+          full: `${weekdayNamesLong[weekday]}, ${dayNumber} ${monthShort}`,
+          amount: 0
         });
       }
+
+      return partTimeDays;
     }
 
-    if (triggeredIdx!==undefined) {
-      const v = ventas[triggeredIdx];
-      if (v>0) {
-        const ratio = v/metaDiaria;
-        if (ratio>=1) showCelebration('vamooos! 🔥', true);
-        else if (ratio>=0.5) showCelebration('Uff casi', false);
-        else showCelebration('Pa´la otra 😔', false);
+    function createDaysForCurrentMode() {
+      return workSwitch && workSwitch.classList.contains('full')
+        ? createMonthWeek(selectedMonthDate)
+        : createPartTimeMonthDays(selectedMonthDate);
+    }
+
+    function isLastWeekendWorkDay(index) {
+      if (workSwitch.classList.contains('full')) return false;
+      return index === days.length - 1 || index === days.length - 2;
+    }
+
+    function updateMonthSectionTitle() {
+      const monthIndex = selectedMonthDate.getMonth();
+      const year = selectedMonthDate.getFullYear();
+      const baseTitle = `${monthNamesLong[monthIndex]} ${year}`;
+
+      monthTitle.textContent = isLastWeekendWorkDay(activeDayIndex)
+        ? 'Último finde del mes'
+        : baseTitle;
+    }
+
+
+    function getCurrentDayIndex(monthDate) {
+      const isCurrentMonth =
+        monthDate.getFullYear() === realToday.getFullYear() &&
+        monthDate.getMonth() === realToday.getMonth();
+
+      if (isCurrentMonth) {
+        const todayIndex = days.findIndex((day) =>
+          day.date.getFullYear() === realToday.getFullYear() &&
+          day.date.getMonth() === realToday.getMonth() &&
+          day.date.getDate() === realToday.getDate()
+        );
+
+        if (todayIndex >= 0) return todayIndex;
+
+        const nextAvailableIndex = days.findIndex((day) => day.date >= realToday);
+        if (nextAvailableIndex >= 0) return nextAvailableIndex;
       }
-      const completado = isFT ? (trabajados>=dias) : ventas.every(v=>v>0);
-      if (completado && !monthCelebrated) {
-        monthCelebrated = true;
-        setTimeout(()=>showCelebration(pct>=1?'felicidades hoy se come 🤑':'hoy no se come 😔',pct>=1),2700);
-      } else if (!completado) { monthCelebrated=false; }
+
+      const selectedMonth = monthDate.getMonth();
+      const firstInsideMonth = days.findIndex((day) => day.date.getMonth() === selectedMonth);
+      return firstInsideMonth >= 0 ? firstInsideMonth : 0;
     }
-    saveData(m, {ventas, dias, meta});
-  }
 
-  window['setV_'+m.key] = (idx, val) => {
-    ventas[idx] = val;
-    window['vc_'+m.key] = ventas;
-    if (idx===todayIdx) {
-      const inp = document.getElementById('today-inp-'+m.key);
-      if (inp) inp.value = val>0 ? val.toLocaleString('es-CL') : '';
+    const workSwitch = document.getElementById('workSwitch');
+    const metricTabs = document.getElementById('metricTabs');
+    const metricCaption = document.getElementById('metricCaption');
+    const mainAmount = document.getElementById('mainAmount');
+    const salesInput = document.getElementById('salesInput');
+    const commissionAmount = document.getElementById('commissionAmount');
+    const progressRing = document.getElementById('progressRing');
+    const progressPercent = document.getElementById('progressPercent');
+    const goalInput = document.getElementById('goalInput');
+    const workDaysInput = document.getElementById('workDaysInput');
+    const remainingDaysValue = document.getElementById('remainingDaysValue');
+    const weekSelector = document.getElementById('weekSelector');
+    let dayButtons = Array.from(document.querySelectorAll('.day-btn'));
+    const dateLabel = document.getElementById('dateLabel');
+    const monthButtons = Array.from(document.querySelectorAll('.month-btn'));
+    const monthTitle = document.getElementById('monthTitle');
+    const entryList = document.getElementById('entryList');
+    const viewAllButton = document.getElementById('viewAllButton');
+    const saveToast = document.getElementById('saveToast');
+    const monthRefresh = document.getElementById('monthRefresh');
+    const screen = document.querySelector('.screen');
+
+    let saveTimeout = null;
+    let currentProgress = 0;
+    let progressAnimationFrame = null;
+
+    function formatCLP(value) {
+      const rounded = Math.max(0, Math.round(Number(value) || 0));
+      return '$' + rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
     }
-    update(idx);
-  };
 
-  if (todayIdx!==-1) {
-    const inp = document.getElementById('today-inp-'+m.key);
-    const btn = document.getElementById('today-btn-'+m.key);
-    if (inp && btn) {
-      if ((ventas[todayIdx]||0)>0) inp.value=(ventas[todayIdx]).toLocaleString('es-CL');
-      const save = () => {
-        window['setV_'+m.key](todayIdx, parseCur(inp.value));
-        inp.value = (ventas[todayIdx]||0)>0 ? ventas[todayIdx].toLocaleString('es-CL') : '';
-      };
-      btn.onclick = save;
-      inp.onkeydown = e => { if(e.key==='Enter') save(); };
+    function getTotalEarned() {
+      return days.reduce((sum, day) => sum + day.amount, 0);
     }
-  }
 
-  document.getElementById('meta-'+m.key).oninput = () => update();
-  document.getElementById('dias-'+m.key).oninput = () => update();
-  document.getElementById('cal-prev-'+m.key).onclick = () => {
-    calState[m.key] = Math.max(0,(calState[m.key]||0)-1);
-    renderCal(m, ventas, meta/dias);
-  };
-  document.getElementById('cal-next-'+m.key).onclick = () => {
-    const tw = Math.ceil(m.dates.length/7);
-    calState[m.key] = Math.min(tw-1,(calState[m.key]||0)+1);
-    renderCal(m, ventas, meta/dias);
-  };
-  document.querySelector(`.reset-btn[data-key="${m.key}"]`).onclick = () => {
-    if (confirm(`¿Reiniciar datos de ${m.labelFull}?`)) {
-      ventas = new Array(m.dates.length).fill(0);
-      window['vc_'+m.key] = ventas;
-      update();
+    function getRemainingDays() {
+      const activeDate = days[activeDayIndex].date;
+      const closureDate = new Date(activeDate.getFullYear(), activeDate.getMonth(), CLOSING_DAY);
+      const millisecondsPerDay = 24 * 60 * 60 * 1000;
+      const remaining = Math.floor((closureDate - activeDate) / millisecondsPerDay) + 1;
+      return Math.max(1, remaining);
     }
-  };
 
-  update();
-}
+    function countWeekendWorkDaysUntilClosure(monthDate) {
+      const year = monthDate.getFullYear();
+      const month = monthDate.getMonth();
+      let total = 0;
 
-// ── INIT ───────────────────────────────────────────────────────────────
-initWelcome();
-setMode(currentMode);
-setView('home');
+      for (let day = 1; day <= CLOSING_DAY; day++) {
+        const date = new Date(year, month, day);
+        const weekday = date.getDay();
+        if (weekday === 0 || weekday === 6) total++;
+      }
 
-const tabsPT = document.getElementById('tabs-pt');
-const panelsPT = document.getElementById('panels-pt');
-MONTHS_PT.forEach(m => buildPanel(m, tabsPT, panelsPT, false));
-switchTab(MONTHS_PT[0].key, tabsPT, panelsPT);
-MONTHS_PT.forEach(m => setupMonth(m, false));
+      return total;
+    }
 
-const tabsFT = document.getElementById('tabs-ft');
-const panelsFT = document.getElementById('panels-ft');
-MONTHS_FT.forEach(m => buildPanel(m, tabsFT, panelsFT, true));
-switchTab(MONTHS_FT[0].key, tabsFT, panelsFT);
-MONTHS_FT.forEach(m => setupMonth(m, true));
-</script>
+    function countFullTimeWorkDaysUntilClosure(monthDate) {
+      const year = monthDate.getFullYear();
+      const month = monthDate.getMonth();
+      let totalCalendarDays = 0;
+
+      for (let day = 1; day <= CLOSING_DAY; day++) {
+        const date = new Date(year, month, day);
+        if (date.getMonth() === month) totalCalendarDays++;
+      }
+
+      const fullWeeks = Math.floor(totalCalendarDays / 7);
+      const estimatedFreeDays = fullWeeks * 2;
+      return Math.max(1, totalCalendarDays - estimatedFreeDays);
+    }
+
+    function getDefaultWorkDays() {
+      return workSwitch.classList.contains('full')
+        ? countFullTimeWorkDaysUntilClosure(selectedMonthDate)
+        : countWeekendWorkDaysUntilClosure(selectedMonthDate);
+    }
+
+    function getRegisteredWorkDays() {
+      return days.filter((day) => day.amount > 0).length;
+    }
+
+    function updateRemainingWorkDays() {
+      const workDays = Number(workDaysInput.value.replace(/\D/g, '')) || 0;
+      const remaining = Math.max(0, workDays - getRegisteredWorkDays());
+      remainingDaysValue.textContent = String(remaining);
+    }
+
+    function resetWorkDaysToDefault() {
+      workDaysInput.value = String(getDefaultWorkDays());
+      updateRemainingWorkDays();
+    }
+
+    function getMetricValue() {
+      const earned = getTotalEarned();
+      const missing = Math.max(0, monthlyGoal - earned);
+      const workDays = Number(workDaysInput.value.replace(/\D/g, '')) || getRemainingDays();
+      const remainingWorkDays = Math.max(1, workDays - getRegisteredWorkDays());
+      const daily = Math.ceil(missing / remainingWorkDays);
+
+      if (activeMetric === 'missing') return missing;
+      if (activeMetric === 'daily') return daily;
+      return earned;
+    }
+
+    function getMetricLabel() {
+      if (activeMetric === 'missing') return 'Falta';
+      if (activeMetric === 'daily') return 'Diario';
+      return 'Llevas';
+    }
+
+    function updateMainMetric() {
+      mainAmount.classList.add('updating');
+
+      window.setTimeout(() => {
+        metricCaption.textContent = getMetricLabel();
+        mainAmount.textContent = formatCLP(getMetricValue());
+        mainAmount.classList.remove('updating');
+      }, 120);
+    }
+
+    function animateProgressTo(nextProgress) {
+      if (progressAnimationFrame) {
+        window.cancelAnimationFrame(progressAnimationFrame);
+      }
+
+      const startProgress = currentProgress;
+      const distance = nextProgress - startProgress;
+      const duration = 520;
+      const startTime = performance.now();
+
+      function step(now) {
+        const elapsed = Math.min(1, (now - startTime) / duration);
+        const eased = 1 - Math.pow(1 - elapsed, 3);
+        const value = startProgress + distance * eased;
+        const visualValue = Math.round(value);
+
+        progressRing.style.setProperty('--progress', value.toFixed(2));
+        progressPercent.textContent = visualValue + '%';
+
+        if (elapsed < 1) {
+          progressAnimationFrame = window.requestAnimationFrame(step);
+        } else {
+          currentProgress = nextProgress;
+          progressRing.style.setProperty('--progress', nextProgress);
+          progressPercent.textContent = nextProgress + '%';
+        }
+      }
+
+      progressAnimationFrame = window.requestAnimationFrame(step);
+    }
+
+    function updateProgress() {
+      const earned = getTotalEarned();
+      const progress = Math.min(100, monthlyGoal > 0 ? Math.round((earned / monthlyGoal) * 100) : 0);
+      const estimatedCommission = Math.round(earned * COMMISSION_RATE);
+
+      animateProgressTo(progress);
+      commissionAmount.textContent = formatCLP(estimatedCommission);
+    }
+
+    function updateCurrentInput() {
+      salesInput.value = '';
+      salesInput.placeholder = days[activeDayIndex].amount
+        ? days[activeDayIndex].amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+        : '0';
+    }
+
+    function showSavedAnimation() {
+      if (saveTimeout) window.clearTimeout(saveTimeout);
+      saveToast.classList.remove('show');
+      void saveToast.offsetWidth;
+      saveToast.classList.add('show');
+      saveTimeout = window.setTimeout(() => {
+        saveToast.classList.remove('show');
+      }, 1100);
+    }
+
+    function playMonthRefresh() {
+      screen.classList.add('refreshing');
+      monthRefresh.classList.add('active');
+      window.setTimeout(() => {
+        monthRefresh.classList.remove('active');
+        screen.classList.remove('refreshing');
+      }, 720);
+    }
+
+    function renderEntries() {
+      entryList.innerHTML = '';
+
+      days.forEach((day, index) => {
+        const entry = document.createElement('article');
+        entry.className = 'entry';
+        if (showAllEntries || index === activeDayIndex || day.amount > 0) {
+          entry.classList.add('visible');
+        }
+
+        entry.innerHTML = `
+          <div class="entry-day">${day.name}</div>
+          <div class="entry-number">${day.number}</div>
+          <div class="entry-description">Ingreso neto registrado</div>
+          <div class="entry-charge">
+            <div class="entry-pill">Diario</div>
+            <div class="entry-commission">Comisión</div>
+          </div>
+          <div class="entry-amount">${formatCLP(day.amount)}</div>
+        `;
+
+        entry.addEventListener('click', () => selectDay(index));
+        entryList.appendChild(entry);
+      });
+    }
+
+    function updateWeekLabels() {
+      const isPartTime = !workSwitch.classList.contains('full');
+
+      weekSelector.classList.toggle('weekend-only', isPartTime);
+      weekSelector.style.setProperty('--visible-days', String(days.length));
+
+      weekSelector.innerHTML = days.map((day, index) => `
+        <button class="day-btn" type="button" data-index="${index}">
+          <span class="day-bg"></span>
+          <span class="day-name">${day.name}</span>
+          <span class="day-number">${day.number}</span>
+        </button>
+      `).join('');
+
+      dayButtons = Array.from(weekSelector.querySelectorAll('.day-btn'));
+      dayButtons.forEach((button, index) => {
+        button.addEventListener('click', () => selectDay(index));
+      });
+    }
+
+    function getDefaultActiveDayIndex() {
+      return getCurrentDayIndex(selectedMonthDate);
+    }
+
+    function resetMonthView() {
+      days = createDaysForCurrentMode();
+      activeDayIndex = getDefaultActiveDayIndex();
+      showAllEntries = false;
+      currentProgress = 0;
+
+      progressRing.style.setProperty('--progress', 0);
+      progressPercent.textContent = '0%';
+      commissionAmount.textContent = '$0';
+      mainAmount.textContent = '$0';
+      monthlyGoal = 4000000;
+      goalInput.value = '4.000.000';
+      salesInput.value = '';
+      salesInput.placeholder = '0';
+      viewAllButton.textContent = 'Ver todo';
+      resetWorkDaysToDefault();
+
+      updateWeekLabels();
+      selectDay(activeDayIndex);
+    }
+
+    function selectDay(index) {
+      activeDayIndex = Math.max(0, Math.min(index, days.length - 1));
+
+      dayButtons.forEach((button, buttonIndex) => {
+        button.classList.toggle('active', buttonIndex === activeDayIndex);
+      });
+
+      dateLabel.textContent = days[activeDayIndex].full;
+      updateMonthSectionTitle();
+      updateCurrentInput();
+      updateMainMetric();
+      renderEntries();
+    }
+
+    function updateAll() {
+      updateProgress();
+      updateMainMetric();
+      updateRemainingWorkDays();
+      renderEntries();
+    }
+
+    workSwitch.addEventListener('click', () => {
+      workSwitch.classList.toggle('full');
+      days = createDaysForCurrentMode();
+      activeDayIndex = getDefaultActiveDayIndex();
+      updateWeekLabels();
+      selectDay(activeDayIndex);
+      resetWorkDaysToDefault();
+      updateAll();
+    });
+
+    metricTabs.addEventListener('click', (event) => {
+      const selected = event.target.closest('.metric-tab');
+      if (!selected) return;
+
+      activeMetric = selected.dataset.tab;
+      metricTabs.dataset.active = activeMetric;
+      updateMainMetric();
+    });
+
+    goalInput.addEventListener('input', () => {
+      const rawValue = goalInput.value.replace(/\D/g, '');
+      monthlyGoal = Number(rawValue || 0);
+      goalInput.value = rawValue ? rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+      updateAll();
+    });
+
+    goalInput.addEventListener('blur', () => {
+      goalInput.value = monthlyGoal
+        ? monthlyGoal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+        : '0';
+    });
+
+    workDaysInput.addEventListener('input', () => {
+      const rawValue = workDaysInput.value.replace(/\D/g, '');
+      workDaysInput.value = rawValue;
+      updateRemainingWorkDays();
+      updateMainMetric();
+    });
+
+    workDaysInput.addEventListener('blur', () => {
+      if (!workDaysInput.value) {
+        resetWorkDaysToDefault();
+        updateAll();
+      }
+    });
+
+    monthButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const monthIndex = Number(button.dataset.monthIndex);
+        const year = Number(button.dataset.year);
+
+        selectedMonthDate = new Date(year, monthIndex, 1);
+
+        monthButtons.forEach((item) => item.classList.remove('active'));
+        button.classList.add('active');
+
+        monthTitle.textContent = `${monthNamesLong[monthIndex]} ${year}`;
+        resetMonthView();
+        playMonthRefresh();
+      });
+    });
+
+    function saveCurrentInput() {
+      const rawValue = salesInput.value.replace(/\D/g, '');
+      if (!rawValue) {
+        updateCurrentInput();
+        return;
+      }
+
+      days[activeDayIndex].amount = Number(rawValue);
+      updateAll();
+      showSavedAnimation();
+      updateCurrentInput();
+    }
+
+    salesInput.addEventListener('input', () => {
+      const rawValue = salesInput.value.replace(/\D/g, '');
+      salesInput.value = rawValue ? rawValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+    });
+
+    salesInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        saveCurrentInput();
+        salesInput.blur();
+      }
+    });
+
+    salesInput.addEventListener('blur', saveCurrentInput);
+
+    viewAllButton.addEventListener('click', () => {
+      showAllEntries = !showAllEntries;
+      viewAllButton.textContent = showAllEntries ? 'Ocultar' : 'Ver todo';
+      renderEntries();
+    });
+
+    function setupRealTimeCalendar() {
+      const buttons = monthButtons;
+      const currentYear = realToday.getFullYear();
+      const currentMonth = realToday.getMonth();
+
+      buttons.forEach((button, index) => {
+        const date = new Date(currentYear, currentMonth + index, 1);
+        button.dataset.monthIndex = String(date.getMonth());
+        button.dataset.year = String(date.getFullYear());
+        button.textContent = monthNamesShort[date.getMonth()];
+        button.classList.toggle('active', index === 0);
+      });
+
+      selectedMonthDate = new Date(currentYear, currentMonth, 1);
+      monthTitle.textContent = `${monthNamesLong[currentMonth]} ${currentYear}`;
+      days = createDaysForCurrentMode();
+      activeDayIndex = getDefaultActiveDayIndex();
+      dateLabel.textContent = days[activeDayIndex].full;
+      updateMonthSectionTitle();
+    }
+
+    setupRealTimeCalendar();
+    resetMonthView();
+  </script>
 </body>
 </html>
